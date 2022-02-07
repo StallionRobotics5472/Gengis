@@ -1,4 +1,4 @@
-package frc.robot.commands;
+package frc.robot.Commands;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.revrobotics.CANSparkMax.IdleMode;
@@ -40,7 +40,7 @@ public class ShootCommand extends CommandBase {
   @Override
   public void execute() {
     
-    if(Robot.lidarSubsystem.getDistance()<= 300)
+  /*  if(Robot.lidarSubsystem.getDistance()<= 300)
       variable = 15;
     else if(Robot.lidarSubsystem.getDistance()<=440)
       variable = 0.004*(Robot.lidarSubsystem.getDistance()-315) +42;
@@ -51,6 +51,9 @@ public class ShootCommand extends CommandBase {
     else
       variable = (1.5/220)*(-600+Robot.lidarSubsystem.getDistance()) + 42;
 
+*/
+    
+variable =1;
 
 
     

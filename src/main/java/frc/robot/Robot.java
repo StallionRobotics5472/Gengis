@@ -8,6 +8,8 @@ import frc.robot.Commands.DriveCommand;
 import frc.robot.Commands.StopTurretAimCommand;
 import frc.robot.Commands.TurretAimCommand;
 import frc.robot.Subsystems.DriveSubsystem;
+import frc.robot.Subsystems.LidarSubsystem;
+import frc.robot.Subsystems.ShooterSubsystem;
 
 
 public class Robot extends TimedRobot {
@@ -16,6 +18,7 @@ public class Robot extends TimedRobot {
   public static DriveSubsystem drive = new DriveSubsystem();
   public static Limelight limelight = new Limelight();
   public static ShooterSubsystem shooter = new ShooterSubsystem();
+  public static LidarSubsystem lidarSubsystem = new LidarSubsystem();
   //public static Cameras cameras = new Cameras();
 
   //public static Drivetrain drive;
