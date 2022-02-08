@@ -26,6 +26,7 @@ public class ShooterSubsystem extends SubsystemBase {
 	public CANSparkMax flyWheel2;
 	public CANSparkMax hood;
 	public VictorSPX intake;
+	public CANSparkMax transport;
 	//public double kp;
 	//public double kI;
 	//public double kD;
@@ -61,6 +62,7 @@ public class ShooterSubsystem extends SubsystemBase {
         flyWheel2.setInverted(true);
         hood = new CANSparkMax(Constants.HOOD, MotorType.kBrushless);
 		intake = new VictorSPX(Constants.INTAKE);
+		transport = new CANSparkMax(Constants.TRANSPORT, MotorType.kBrushless);
 		// spin2 = new TalonSRX(22);
 		// spin2.setInverted(true);
 		// spin2.follow(spin);
@@ -100,7 +102,10 @@ public class ShooterSubsystem extends SubsystemBase {
 	//   }
 
 	public void spin(double speed){
-		
+		intake.set(ControlMode.PercentOutput, speed);
+	}
+	public void mover(double speed){
+		transport.set(speed);
 	}
 
 	public void shoot(double speed){

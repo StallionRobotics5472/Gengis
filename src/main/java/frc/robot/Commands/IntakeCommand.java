@@ -10,6 +10,7 @@ package frc.robot.Commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.Robot;
+import frc.robot.Subsystems.ShooterSubsystem;
 
 
 public class IntakeCommand extends CommandBase {
@@ -17,9 +18,11 @@ public class IntakeCommand extends CommandBase {
    * Creates a new BallChamberIntakeCommand.
    */
   private boolean isFinished;
+  private ShooterSubsystem shooter;
   public IntakeCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
     //addRequirements(Robot.ballChamber);
+
   }
 
   // Called when the command is initially scheduled.
@@ -27,12 +30,13 @@ public class IntakeCommand extends CommandBase {
   public void initialize() {
     isFinished = false;
     // Robot.ballChamber.spinAll(Constants.BallChamberSpeed);
+    shooter = Robot.shooter;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    
+    shooter.spin(.75);
    
 }
     

@@ -39,8 +39,8 @@ public class ShootCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    
-  /*  if(Robot.lidarSubsystem.getDistance()<= 300)
+    //we have to change all of these values
+    if(Robot.lidarSubsystem.getDistance()<= 300)
       variable = 15;
     else if(Robot.lidarSubsystem.getDistance()<=440)
       variable = 0.004*(Robot.lidarSubsystem.getDistance()-315) +42;
@@ -51,15 +51,16 @@ public class ShootCommand extends CommandBase {
     else
       variable = (1.5/220)*(-600+Robot.lidarSubsystem.getDistance()) + 42;
 
-*/
+
     
-variable =1;
+//variable =1;
 
 
     
     
-    
+    shooter.mover(1);
     shooter.shoot(variable);
+    //missing hood command
   }
 
   // Called once the command ends or is interrupted.

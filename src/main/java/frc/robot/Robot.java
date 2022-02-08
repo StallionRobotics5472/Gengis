@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Commands.DriveCommand;
+import frc.robot.Commands.IntakeCommand;
 import frc.robot.Commands.StopTurretAimCommand;
 import frc.robot.Commands.TurretAimCommand;
 import frc.robot.Subsystems.DriveSubsystem;
@@ -61,13 +62,22 @@ public class Robot extends TimedRobot {
   }
 
   @Override
-  public void teleopInit() {
+public void teleopInit() {
  DriveCommand drive1 = new DriveCommand();
  drive1.schedule();
- TurretAimCommand drive2 = new TurretAimCommand();
- drive2.schedule();
- StopTurretAimCommand drive3 = new StopTurretAimCommand();
- drive3.schedule();
+//  TurretAimCommand drive2 = new TurretAimCommand();
+//  drive2.schedule();
+//  StopTurretAimCommand drive3 = new StopTurretAimCommand();
+//  drive3.schedule();
+//  IntakeCommand intake = new IntakeCommand();
+//  intake.schedule();
+//DumpCommand dump = new DumpCommand();
+//  dump.schedule();
+//TarmacCommand tarmac = new TarmacCommand();
+//  tarmac.schedule();
+//ShootCommand shoot = new ShootCommand();
+    //shoot.schedule();
+
 
 
   }
