@@ -17,6 +17,14 @@ public class ShootCommand extends CommandBase {
    private boolean isFinished;
    private double shootSpeed;
    private double variable;
+   private double distance;
+   private double numerator;
+   private double denominator;
+   private double thirtyfivedegrees;
+   private double twentyfivedegrees;
+   private double thirtydegrees;
+   private double firstTerm;
+   private double inverseSecondTerm;
 
   private ShooterSubsystem shooter;
   public ShootCommand() {
@@ -40,7 +48,7 @@ public class ShootCommand extends CommandBase {
   @Override
   public void execute() {
     //we have to change all of these values
-    if(Robot.lidarSubsystem.getDistance()<= 300)
+ /*   if(Robot.lidarSubsystem.getDistance()<= 300)
       variable = 15;
     else if(Robot.lidarSubsystem.getDistance()<=440)
       variable = 0.004*(Robot.lidarSubsystem.getDistance()-315) +42;
@@ -50,14 +58,22 @@ public class ShootCommand extends CommandBase {
       variable = 43.5 - 0.003125* (Robot.lidarSubsystem.getDistance()-600);
     else
       variable = (1.5/220)*(-600+Robot.lidarSubsystem.getDistance()) + 42;
+*/
+ distance = (0.72124+(Robot.lidarSubsystem.getDistance()));
+ numerator = 4.9*(Math.pow(distance, 2));
+ thirtyfivedegrees = ((11*(Math.PI))/36);
+ //thirtydegrees = ((Math.PI)/6);
+ //twentyfivedegrees = ((13*(Math.PI))/36);
+ denominator = 1.7653 - distance*(Math.tan(thirtyfivedegrees));
+ firstTerm = Math.sqrt(numerator/denominator);
+ inverseSecondTerm = Math.cos(thirtyfivedegrees);
+ variable = firstTerm*(1/inverseSecondTerm);  
+    
+//variable =1;    
 
 
     
-//variable =1;
 
-
-    
-    
     shooter.mover(1);
     shooter.shoot(variable);
     //missing hood command

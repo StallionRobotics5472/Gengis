@@ -11,14 +11,14 @@ import frc.robot.Constants;
 public class LidarSubsystem extends SubsystemBase {
   /** Creates a new LidarSubsystem. */
   private Counter DistanceMaker;
-  double cm;
+  double m;
   public LidarSubsystem() {
   DistanceMaker = new Counter(Constants.LIDAR_PORT);
   // DistanceMaker = Robot.DistanceSensor;
   DistanceMaker.setMaxPeriod(1.0);
   DistanceMaker.setSemiPeriodMode(true);
   DistanceMaker.reset();
-  cm = 0;
+  m = 0;
 
 }
 
@@ -29,9 +29,9 @@ public double getDistance(){
   /* getPeriod returns time in seconds. The hardware resolution is microseconds.
    * The LIDAR-Lite unit sends a high signal for 10 microseconds per cm of distance.
    */
-  cm = (DistanceMaker.getPeriod() * 1000000.0 / 10.0);// + Constants.LIDAR_OFFSET;
+  m = (DistanceMaker.getPeriod() * 1000000.0 / 1000.0);// + Constants.LIDAR_OFFSET;
   //SmartDashboard.putNumber("Distance Inches", cm / 2.54);
-  return cm;
+  return m;
 }
 
 @Override
