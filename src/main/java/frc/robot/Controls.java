@@ -3,10 +3,16 @@ package frc.robot;
 import javax.swing.JPanel;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Commands.DumpCommand;
+import frc.robot.Commands.HoodCommand25;
+import frc.robot.Commands.HoodCommand30;
+import frc.robot.Commands.HoodCommand35;
 import frc.robot.Commands.IntakeCommand;
 import frc.robot.Commands.ShootCommand;
+import frc.robot.Commands.StopHoodCommand;
 import frc.robot.Commands.StopIntakeCommand;
 import frc.robot.Commands.StopShootCommand;
 import frc.robot.Commands.StopTurretAimCommand;
@@ -23,10 +29,13 @@ public class Controls {
     public Joystick playerOne;
     public Joystick playerTwo;
     public JoystickButton turretAim;
-    public JoystickButton shoot;
+    public Trigger shoot;
     public JoystickButton intake;
     public JoystickButton dump;
     public JoystickButton tarmac;
+    public JoystickButton hood;
+    public JoystickButton hood1;
+    public JoystickButton hood2;
 
 
     //creates Joystick Object
@@ -35,24 +44,33 @@ public class Controls {
         playerOne = new Joystick(Constants.PLAYER_ONE_PORT);
         playerTwo = new Joystick(Constants.PLAYER_TWO_PORT);
         turretAim = new JoystickButton(playerTwo, Constants.BUTTON_B);
-        shoot = new JoystickButton(playerTwo, Constants.BUTTON_Y);
+        shoot = new JoystickButton(playerTwo, Constants.RIGHT_TRIGGER);
         intake = new JoystickButton(playerOne, Constants.BUTTON_X);
         dump = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
         tarmac = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
+        hood2 = new JoystickButton(playerTwo, Constants.START);
+        hood1 = new JoystickButton(playerTwo, Constants.BACK);
+        hood = new JoystickButton(playerTwo, Constants.BUTTON_Y);
         configureButtonBindings();
     }
 
     private void configureButtonBindings() {
         turretAim.whileHeld(new TurretAimCommand());
         turretAim.whenReleased(new StopTurretAimCommand());
-        shoot.whileHeld(new ShootCommand());
-        shoot.whenReleased(new StopShootCommand());
+        ((Button) shoot).whileHeld(new ShootCommand());
+        ((Button) shoot).whenReleased(new StopShootCommand());
         intake.whileHeld(new IntakeCommand());
         intake.whenReleased(new StopIntakeCommand());
         dump.whileHeld(new DumpCommand());
         dump.whenReleased(new StopShootCommand());
         tarmac.whileHeld(new TarmacCommand());
         tarmac.whenReleased(new StopShootCommand());
+        hood.whenPressed(new HoodCommand35());
+        hood2.whenPressed(new HoodCommand30());
+        hood1.whenPressed(new HoodCommand25());
+        hood.whenReleased(new StopHoodCommand());
+        hood1.whenReleased(new StopHoodCommand());
+        hood2.whenReleased(new StopHoodCommand());
 
         
     }   

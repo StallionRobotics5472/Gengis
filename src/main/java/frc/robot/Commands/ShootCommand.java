@@ -60,7 +60,7 @@ public class ShootCommand extends CommandBase {
       variable = (1.5/220)*(-600+Robot.lidarSubsystem.getDistance()) + 42;
 */
  distance = (0.72124+(Robot.lidarSubsystem.getDistance()));
- numerator = 4.9*(Math.pow(distance, 2));
+ /*numerator = -4.9*(Math.pow(distance, 2));
  thirtyfivedegrees = ((11*(Math.PI))/36);
  //thirtydegrees = ((Math.PI)/6);
  //twentyfivedegrees = ((13*(Math.PI))/36);
@@ -68,7 +68,9 @@ public class ShootCommand extends CommandBase {
  firstTerm = Math.sqrt(numerator/denominator);
  inverseSecondTerm = Math.cos(thirtyfivedegrees);
  variable = firstTerm*(1/inverseSecondTerm);  
-    
+ */ 
+//variable = ((Math.sqrt(-4.9*(Math.pow(distance, 2)))/1.7653 - distance*(Math.tan(thirtyfivedegrees)))*(1/Math.cos(thirtyfivedegrees)));
+variable = (Math.sqrt(-4.9*(Math.pow(distance, 2)))/1.7653 - distance*Math.tan((11*(Math.PI))/36)*(1/Math.cos(((11*(Math.PI))/36))));
 //variable =1;    
 
 

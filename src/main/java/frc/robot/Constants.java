@@ -16,6 +16,9 @@ public class Constants {
         public static final int BUTTON_A = 1;
         public static final int BACK_LEFT_BUTTON = 5;
         public static final int BACK_RIGHT_BUTTON = 6;
+        public static final int START = 8;
+        public static final int BACK = 7;
+        public static final int RIGHT_TRIGGER = 0;
         
         
        
@@ -23,6 +26,7 @@ public class Constants {
        
        
       //Motor ID's 
+
         public static int rightMotor = 5;
         public static int leftMotor = 2;
         public static int rightFollow = 4;
@@ -33,7 +37,12 @@ public class Constants {
         public static int FLY_WHEEL_2 = 8;
         public static int HOOD = 9;
         public static int INTAKE = 11;
-        public static final int TRANSPORT = 10;
+        public static int TRANSPORT = 10;
+        public static int LIFT_1 = 12;
+        public static int LIFT_2 = 13;
+        public static int LIFT_3 = 14;
+      
+        
 		    
 
 

@@ -112,7 +112,10 @@ public class ShooterSubsystem extends SubsystemBase {
 		flyWheel1.set(speed);
 		flyWheel2.set(speed);	
 	}
+public void rotate(double speed){
 
+	hood.set(speed);
+}
 	public double getShooterSpeed()
 	{
 		// return spin.getMotorOutputPercent();
