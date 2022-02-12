@@ -37,10 +37,11 @@ public class Constants {
         public static int FLY_WHEEL_2 = 8;
         public static int HOOD = 9;
         public static int INTAKE = 11;
-        public static int TRANSPORT = 10;
-        public static int LIFT_1 = 12;
-        public static int LIFT_2 = 13;
-        public static int LIFT_3 = 14;
+        public static int TRANSPORT_1 = 10;
+        public static int TRANSPORT_2 = 12;
+        public static int LIFT_1 = 13;
+        public static int LIFT_2 = 14;
+        public static int LIFT_3 = 15;
       
         
 		    

@@ -50,7 +50,7 @@ public class TurretAimCommand extends CommandBase {
 
     
             double horizontalError = limelight.getHorizontalAngle();
-            SmartDashboard.putNumber("tx", limelight.getHorizontalAngle());
+            SmartDashboard.putNumber("ty", limelight.getHorizontalAngle());
             turn = horizontalError * -0.01;
         
         SmartDashboard.putNumber("Turret Rotation", turn);

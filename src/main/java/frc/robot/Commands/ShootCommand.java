@@ -70,8 +70,8 @@ public class ShootCommand extends CommandBase {
  variable = firstTerm*(1/inverseSecondTerm);  
  */ 
 //variable = ((Math.sqrt(-4.9*(Math.pow(distance, 2)))/1.7653 - distance*(Math.tan(thirtyfivedegrees)))*(1/Math.cos(thirtyfivedegrees)));
-variable = (Math.sqrt(-4.9*(Math.pow(distance, 2)))/1.7653 - distance*Math.tan((11*(Math.PI))/36)*(1/Math.cos(((11*(Math.PI))/36))));
-//variable =1;    
+//variable = (Math.sqrt(-4.9*(Math.pow(distance, 2)))/1.7653 - distance*Math.tan((11*(Math.PI))/36)*(1/Math.cos(((11*(Math.PI))/36))));
+variable =1;    
 
 
     

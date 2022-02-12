@@ -51,7 +51,7 @@ public class TarmacCommand extends CommandBase {
     else
       variable = (1.5/220)*(-600+Robot.lidarSubsystem.getDistance()) + 42;
 */
-
+variable = 0.5;
     
 //variable =1; Dont Know value
 

@@ -5,8 +5,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Commands.DriveCommand;
+import frc.robot.Commands.DumpCommand;
 import frc.robot.Commands.IntakeCommand;
+import frc.robot.Commands.ShootCommand;
+import frc.robot.Commands.StopShootCommand;
 import frc.robot.Commands.StopTurretAimCommand;
+import frc.robot.Commands.TarmacCommand;
 import frc.robot.Commands.TurretAimCommand;
 import frc.robot.Subsystems.DriveSubsystem;
 import frc.robot.Subsystems.LidarSubsystem;
@@ -63,12 +67,12 @@ public class Robot extends TimedRobot {
 
   @Override
 public void teleopInit() {
- DriveCommand drive1 = new DriveCommand();
- drive1.schedule();
+//  DriveCommand drive1 = new DriveCommand();
+//  drive1.schedule();
 //  TurretAimCommand drive2 = new TurretAimCommand();
 //  drive2.schedule();
 //  StopTurretAimCommand drive3 = new StopTurretAimCommand();
-//  drive3.schedule();
+//  drive3.execute();
 //  IntakeCommand intake = new IntakeCommand();
 //  intake.schedule();
 //DumpCommand dump = new DumpCommand();
@@ -85,7 +89,24 @@ public void teleopInit() {
   
   @Override
   public void teleopPeriodic() {  
-
+    DriveCommand drive1 = new DriveCommand();
+    drive1.execute();
+    /* TurretAimCommand drive2 = new TurretAimCommand();
+      drive2.execute();
+      StopTurretAimCommand drive3 = new StopTurretAimCommand();
+        drive3.execute();
+        
+      IntakeCommand intake = new IntakeCommand();
+      intake.execute();
+      DumpCommand dump = new DumpCommand();
+      dump.execute();
+      TarmacCommand tarmac = new TarmacCommand();
+      tarmac.execute();
+        ShootCommand shoot = new ShootCommand();
+        shoot.execute();
+        StopShootCommand noShoot = new StopShootCommand();
+       noShoot.execute();
+       */
   }
 
  
