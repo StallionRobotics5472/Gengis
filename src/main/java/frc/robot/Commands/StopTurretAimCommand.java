@@ -16,7 +16,6 @@ public class StopTurretAimCommand extends CommandBase {
    * Creates a new StopTurretAimCommand.
    */
 
-   private boolean finished;
   //public TurretSubsystem turret;
   public DriveSubsystem drive;
   public StopTurretAimCommand() {
@@ -28,14 +27,12 @@ public class StopTurretAimCommand extends CommandBase {
   @Override
   public void initialize() {
     drive = Robot.drive;
-    finished = false;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     drive.rotate(0);
-    finished = true;
   }
 
   // Called once the command ends or is interrupted.
@@ -46,6 +43,6 @@ public class StopTurretAimCommand extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return finished;
+    return true;
   }
 }

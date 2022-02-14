@@ -72,36 +72,8 @@ public class ShooterSubsystem extends SubsystemBase {
 	    flyWheel1.setIdleMode(IdleMode.kCoast);
         flyWheel2.setIdleMode(IdleMode.kCoast);
         
-		// spin2.setNeutralMode(NeutralMode.Coast);
-
-		// wheel = new CANSparkMax(Constants.SHOOTER_WHEEL_MOTOR, MotorType.kBrushless);
-		// wheel.setIdleMode(IdleMode.kCoast);
-		// wheel_slave = new CANSparkMax(Constants.SHOOTER_WHEEL_MOTOR2, MotorType.kBrushless);
-		// wheel_slave.follow(wheel);
-		// wheel_slave.setInverted(true);
-		// wheel.setInverted(true);
-		// // wheel_slave.setSmartCurrentLimit(30);
-		// wheel.setIdleMode(IdleMode.kCoast);
-		// wheel.setSmartCurrentLimit(30);
-		//turret = new CANSparkMax(Constants.TURRET_MOTOR, MotorType.kBrushless);
-		//turret.setIdleMode(IdleMode.kBrake);
-		// turret.setSmartCurrentLimit(30);
-	//	TurretPIDControl = turret.getPIDController();
-		//spin.getEncoder().setPosition(0);
-
-	//	TurretPIDControl.setP(kp);
-	//	TurretPIDControl.setI(kI);
-	//	TurretPIDControl.setD(kD);
-	//	TurretPIDControl.setIZone(kIz);
-	//	TurretPIDControl.setFF(kFF);
-	//	TurretPIDControl.setOutputRange(kMinOutput, kMaxOutput);
 		
 	}
-
-	// public void TurretSetPosition(double EncoderValue){
-	// 	TurretPIDControl.setReference(EncoderValue, ControlType.kPosition);
-	
-	//   }
 
 	public void spin(double speed){
 		intake.set(ControlMode.PercentOutput, speed);
@@ -119,34 +91,12 @@ public void rotate(double speed){
 
 	hood.set(speed);
 }
-	public double getShooterSpeed()
-	{
-		// return spin.getMotorOutputPercent();
-	//	return spin.getEncoder().getVelocity();
-	return 0;
-	}
-
-	public double getTurretEncoder(){
-	//	return turret.getEncoder().getPosition();
-	return 0;
-	}
-
-	public void resetTurretEncoder(){
-	//	turret.getEncoder().setPosition(0);
-	}
-
-	public void spinFront(double turretSpeed) {
-	}
-
-	public void spinBack(double spinSpeed) {
-	}
-
-	public void spinPo(double d) {
-	//	beltSpin.set(d);
-	}
-
-	public void TurretPIDControl(double EncoderValue) {
-	//	TurretPIDControl.setReference(EncoderValue, ControlType.kPosition);
-	}
-
 }
+
+	
+
+
+
+	
+
+	

@@ -1,11 +1,8 @@
 package frc.robot;
 
-import javax.swing.JPanel;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Commands.DumpCommand;
 import frc.robot.Commands.HoodCommand25;
 import frc.robot.Commands.HoodCommand30;
@@ -29,7 +26,7 @@ public class Controls {
     public Joystick playerOne;
     public Joystick playerTwo;
     public JoystickButton turretAim;
-    public Trigger shoot;
+    public JoystickButton shoot;
     public JoystickButton intake;
     public JoystickButton dump;
     public JoystickButton tarmac;
@@ -43,25 +40,25 @@ public class Controls {
         //super(ControlsPort);
         playerOne = new Joystick(Constants.PLAYER_ONE_PORT);
         playerTwo = new Joystick(Constants.PLAYER_TWO_PORT);
-        turretAim = new JoystickButton(playerTwo, Constants.BUTTON_B);
-        shoot = new JoystickButton(playerTwo, Constants.RIGHT_TRIGGER);
+        //turretAim = new JoystickButton(playerTwo, Constants.BUTTON_B);
+        //shoot = new JoystickButton(playerOne, Constants.BUTTON_A);
         intake = new JoystickButton(playerOne, Constants.BUTTON_X);
-        dump = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
-        tarmac = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
-        hood2 = new JoystickButton(playerTwo, Constants.START);
-        hood1 = new JoystickButton(playerTwo, Constants.BACK);
-        hood = new JoystickButton(playerTwo, Constants.BUTTON_Y);
+        //dump = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
+        //tarmac = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
+        //hood2 = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
+        //hood1 = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
+        //hood = new JoystickButton(playerTwo, Constants.BUTTON_Y);
         configureButtonBindings();
     }
 
     private void configureButtonBindings() {
-        turretAim.whileHeld(new TurretAimCommand());
-        turretAim.whenReleased(new StopTurretAimCommand());
-        ((Button) shoot).whileHeld(new ShootCommand());
-        ((Button) shoot).whenReleased(new StopShootCommand());
+        //turretAim.whileHeld(new TurretAimCommand());
+        //turretAim.whenReleased(new StopTurretAimCommand());
+        //shoot.whileHeld(new ShootCommand());
+        //shoot.whenReleased(new StopShootCommand());
         intake.whileHeld(new IntakeCommand());
         intake.whenReleased(new StopIntakeCommand());
-        dump.whileHeld(new DumpCommand());
+        /*dump.whileHeld(new DumpCommand());
         dump.whenReleased(new StopShootCommand());
         tarmac.whileHeld(new TarmacCommand());
         tarmac.whenReleased(new StopShootCommand());
@@ -71,7 +68,7 @@ public class Controls {
         hood.whenReleased(new StopHoodCommand());
         hood1.whenReleased(new StopHoodCommand());
         hood2.whenReleased(new StopHoodCommand());
-
+*/
         
     }   
 
@@ -85,6 +82,7 @@ public class Controls {
     public double getY() {
         return playerOne.getRawAxis(AXIS_LEFT_Y);
     }
+   
 
     
 	

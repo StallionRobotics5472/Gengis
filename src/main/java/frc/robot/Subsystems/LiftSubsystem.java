@@ -12,9 +12,9 @@ import frc.robot.Constants;
 
 public class LiftSubsystem extends SubsystemBase {
   /** Creates a new LiftSubsystem. */
-  public CANSparkMax lift1 = new CANSparkMax( Constants.LIFT_1, MotorType.kBrushless);
-  public CANSparkMax lift2 = new CANSparkMax( Constants.LIFT_2, MotorType.kBrushless);
-  public CANSparkMax lift3 = new CANSparkMax( Constants.LIFT_3, MotorType.kBrushless);
+  public CANSparkMax lift1 = new CANSparkMax(Constants.LIFT_1, MotorType.kBrushless);
+  public CANSparkMax lift2 = new CANSparkMax(Constants.LIFT_2, MotorType.kBrushless);
+  public CANSparkMax lift3 = new CANSparkMax(Constants.LIFT_3, MotorType.kBrushless);
   public LiftSubsystem() {
 
     

@@ -26,16 +26,16 @@ public class DriveCommand extends CommandBase {
   public void execute() {
     //DRIVER.drive.tank(OI.getX, OI.getY);
 
-    double y = controls.getY();
-    double x = -controls.getX();
+    double y = -controls.getY();
+    double x = controls.getX();
 
     if(Math.abs(x)<0.1)
       x=0;
     if(Math.abs(y)<0.1)
       y=0;
 
-    Robot.drive.leftMaster.set(x*.25 - y*.25);
-    Robot.drive.rightMaster.set(x*.25 + y*.25);
+    Robot.drive.leftMaster.set(y*.25 - x*.25);
+    Robot.drive.rightMaster.set(y*.25 + x*.25);
   }
 
   // Make this return true when this Command no longer needs to run execute()

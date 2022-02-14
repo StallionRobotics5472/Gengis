@@ -7,18 +7,24 @@ import edu.wpi.first.wpilibj.Counter.Mode;
  */
 public class Constants {
 
-        public static final int PLAYER_ONE_PORT = 0;
-        public static final int BUTTON_B = 2;
-        public static final int BUTTON_Y = 4;
-        public static final int BUTTON_X = 3;
-        public static final int LIDAR_PORT = 5;
-        public static final int PLAYER_TWO_PORT = 1;
-        public static final int BUTTON_A = 1;
-        public static final int BACK_LEFT_BUTTON = 5;
-        public static final int BACK_RIGHT_BUTTON = 6;
-        public static final int START = 8;
-        public static final int BACK = 7;
-        public static final int RIGHT_TRIGGER = 0;
+  public static final int PLAYER_ONE_PORT = 0;
+    public static final int PLAYER_TWO_PORT = 1;
+    public static final int BUTTON_A = 1;
+    public static final int BUTTON_B = 2;
+    public static final int BUTTON_X = 3;
+    public static final int BUTTON_Y = 4;
+    public static final int BACK_LEFT_BUTTON = 5;
+    public static final int BACK_RIGHT_BUTTON = 6;
+    public static final int WINDOW_BUTTON = 7;
+    public static final int MENU_BUTTON = 8;
+    public static final int X_AXIS_BUTTON = 9;
+    public static final int Y_AXIS_BUTTON = 10;
+    public static final int JOYSTICK_X_AXIS = 0;
+    public static final int JOYSTICK_Y_AXIS = 1;
+    public static final int LEFT_TRIGGER = 2;
+    public static final int RIGHT_TRIGGER = 3;
+    public static final int ALTERNATE_JOYSTICK_X_AXIS = 4;
+    public static final int ALTERNATE_JOYSTICK_Y_AXIS = 5;
         
         
        

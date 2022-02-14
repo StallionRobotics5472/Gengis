@@ -14,9 +14,7 @@ public class DumpCommand extends CommandBase {
    * Creates a new TurretShootCommand.
    */
 
-   private boolean isFinished;
-   private double shootSpeed;
-   private double variable;
+   
 
   private ShooterSubsystem shooter;
   public DumpCommand() {
@@ -52,14 +50,12 @@ public class DumpCommand extends CommandBase {
       variable = (1.5/220)*(-600+Robot.lidarSubsystem.getDistance()) + 42;
 
 */
-    
-variable =0.25;
 
 
     
     
     shooter.mover(1);
-    shooter.shoot(variable);
+    shooter.shoot(0.25);
     //missing hood command
   }
 

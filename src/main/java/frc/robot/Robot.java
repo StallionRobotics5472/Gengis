@@ -13,7 +13,6 @@ import frc.robot.Commands.StopTurretAimCommand;
 import frc.robot.Commands.TarmacCommand;
 import frc.robot.Commands.TurretAimCommand;
 import frc.robot.Subsystems.DriveSubsystem;
-import frc.robot.Subsystems.LidarSubsystem;
 import frc.robot.Subsystems.ShooterSubsystem;
 
 
@@ -23,8 +22,7 @@ public class Robot extends TimedRobot {
   public static DriveSubsystem drive = new DriveSubsystem();
   public static Limelight limelight = new Limelight();
   public static ShooterSubsystem shooter = new ShooterSubsystem();
-  public static LidarSubsystem lidarSubsystem = new LidarSubsystem();
-  //public static Cameras cameras = new Cameras();
+    //public static Cameras cameras = new Cameras();
 
   //public static Drivetrain drive;
 
@@ -67,14 +65,14 @@ public class Robot extends TimedRobot {
 
   @Override
 public void teleopInit() {
-//  DriveCommand drive1 = new DriveCommand();
-//  drive1.schedule();
-//  TurretAimCommand drive2 = new TurretAimCommand();
-//  drive2.schedule();
-//  StopTurretAimCommand drive3 = new StopTurretAimCommand();
-//  drive3.execute();
-//  IntakeCommand intake = new IntakeCommand();
-//  intake.schedule();
+//DriveCommand drive1 = new DriveCommand();
+//drive1.schedule();
+ //TurretAimCommand drive2 = new TurretAimCommand();
+//drive2.schedule();
+//StopTurretAimCommand drive3 = new StopTurretAimCommand();
+ //drive3.schedule();
+//IntakeCommand intake = new IntakeCommand();
+//intake.schedule();
 //DumpCommand dump = new DumpCommand();
 //  dump.schedule();
 //TarmacCommand tarmac = new TarmacCommand();
@@ -89,8 +87,9 @@ public void teleopInit() {
   
   @Override
   public void teleopPeriodic() {  
-    DriveCommand drive1 = new DriveCommand();
-    drive1.execute();
+      //DriveCommand drive1 = new DriveCommand();
+    //drive1.execute();
+
     /* TurretAimCommand drive2 = new TurretAimCommand();
       drive2.execute();
       StopTurretAimCommand drive3 = new StopTurretAimCommand();
