@@ -40,35 +40,35 @@ public class Controls {
         //super(ControlsPort);
         playerOne = new Joystick(Constants.PLAYER_ONE_PORT);
         playerTwo = new Joystick(Constants.PLAYER_TWO_PORT);
-        //turretAim = new JoystickButton(playerTwo, Constants.BUTTON_B);
-        //shoot = new JoystickButton(playerOne, Constants.BUTTON_A);
-        intake = new JoystickButton(playerOne, Constants.BUTTON_X);
-        //dump = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
-        //tarmac = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
-        //hood2 = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
-        //hood1 = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
-        //hood = new JoystickButton(playerTwo, Constants.BUTTON_Y);
+        turretAim = new JoystickButton(playerTwo, Constants.BUTTON_B);
+        shoot = new JoystickButton(playerTwo, Constants.BUTTON_A);
+        intake = new JoystickButton(playerTwo, Constants.BUTTON_X);
+        // dump = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
+        // tarmac = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
+        // hood2 = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
+        // hood1 = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
+        // hood = new JoystickButton(playerTwo, Constants.BUTTON_Y);
         configureButtonBindings();
     }
 
     private void configureButtonBindings() {
-        //turretAim.whileHeld(new TurretAimCommand());
-        //turretAim.whenReleased(new StopTurretAimCommand());
-        //shoot.whileHeld(new ShootCommand());
-        //shoot.whenReleased(new StopShootCommand());
+        turretAim.whileHeld(new TurretAimCommand());
+        turretAim.whenReleased(new StopTurretAimCommand());
+        shoot.whileHeld(new ShootCommand());
+        shoot.whenReleased(new StopShootCommand());
         intake.whileHeld(new IntakeCommand());
         intake.whenReleased(new StopIntakeCommand());
-        /*dump.whileHeld(new DumpCommand());
-        dump.whenReleased(new StopShootCommand());
-        tarmac.whileHeld(new TarmacCommand());
-        tarmac.whenReleased(new StopShootCommand());
-        hood.whenPressed(new HoodCommand35());
-        hood2.whenPressed(new HoodCommand30());
-        hood1.whenPressed(new HoodCommand25());
-        hood.whenReleased(new StopHoodCommand());
-        hood1.whenReleased(new StopHoodCommand());
-        hood2.whenReleased(new StopHoodCommand());
-*/
+        // dump.whileHeld(new DumpCommand());
+        // dump.whenReleased(new StopShootCommand());
+        // tarmac.whileHeld(new TarmacCommand());
+        // tarmac.whenReleased(new StopShootCommand());
+        // hood.whenPressed(new HoodCommand35());
+        // hood2.whenPressed(new HoodCommand30());
+        // hood1.whenPressed(new HoodCommand25());
+        // hood.whenReleased(new StopHoodCommand());
+        // hood1.whenReleased(new StopHoodCommand());
+        // hood2.whenReleased(new StopHoodCommand());
+
         
     }   
 

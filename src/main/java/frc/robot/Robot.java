@@ -18,10 +18,10 @@ import frc.robot.Subsystems.ShooterSubsystem;
 
 public class Robot extends TimedRobot {
 
-  public static Controls controls = new Controls();
-  public static DriveSubsystem drive = new DriveSubsystem();
-  public static Limelight limelight = new Limelight();
-  public static ShooterSubsystem shooter = new ShooterSubsystem();
+  public static Controls controls;
+  public static DriveSubsystem drive;
+  public static Limelight limelight;
+  public static ShooterSubsystem shooter;
     //public static Cameras cameras = new Cameras();
 
   //public static Drivetrain drive;
@@ -29,8 +29,10 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
 
-    //controls = new Controls();
-    ///drivetrain = new Drivetrain();
+    controls = new Controls();
+    drive = new DriveSubsystem();
+    limelight = new Limelight();
+    shooter = new ShooterSubsystem();
 
   }
 
@@ -42,12 +44,12 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledInit() {
-    CommandScheduler.getInstance().disable();
+       
   }
 
   @Override
   public void disabledPeriodic() {
- 
+    
   }
 
  
@@ -65,21 +67,24 @@ public class Robot extends TimedRobot {
 
   @Override
 public void teleopInit() {
-//DriveCommand drive1 = new DriveCommand();
-//drive1.schedule();
- //TurretAimCommand drive2 = new TurretAimCommand();
-//drive2.schedule();
-//StopTurretAimCommand drive3 = new StopTurretAimCommand();
- //drive3.schedule();
-//IntakeCommand intake = new IntakeCommand();
-//intake.schedule();
-//DumpCommand dump = new DumpCommand();
-//  dump.schedule();
-//TarmacCommand tarmac = new TarmacCommand();
-//  tarmac.schedule();
-//ShootCommand shoot = new ShootCommand();
-    //shoot.schedule();
+DriveCommand drive1 = new DriveCommand();
+drive1.schedule();
+//  TurretAimCommand drive2 = new TurretAimCommand();
+// drive2.schedule();
+// StopTurretAimCommand drive3 = new StopTurretAimCommand();
+//  drive3.schedule();
 
+ 
+// IntakeCommand intake = new IntakeCommand();
+// intake.schedule();
+
+
+// DumpCommand dump = new DumpCommand();
+//  dump.schedule();
+// TarmacCommand tarmac = new TarmacCommand();
+//  tarmac.schedule();
+// ShootCommand shoot = new ShootCommand();
+//     shoot.schedule();
 
 
   }
@@ -87,25 +92,37 @@ public void teleopInit() {
   
   @Override
   public void teleopPeriodic() {  
-      //DriveCommand drive1 = new DriveCommand();
-    //drive1.execute();
 
-    /* TurretAimCommand drive2 = new TurretAimCommand();
-      drive2.execute();
-      StopTurretAimCommand drive3 = new StopTurretAimCommand();
-        drive3.execute();
-        
-      IntakeCommand intake = new IntakeCommand();
-      intake.execute();
-      DumpCommand dump = new DumpCommand();
-      dump.execute();
-      TarmacCommand tarmac = new TarmacCommand();
-      tarmac.execute();
-        ShootCommand shoot = new ShootCommand();
-        shoot.execute();
-        StopShootCommand noShoot = new StopShootCommand();
-       noShoot.execute();
-       */
+
+      // shooter.intake();
+
+  // DriveCommand drive1 = new DriveCommand();
+  // drive1.execute();
+
+//prob wrong
+
+
+
+
+    //  TurretAimCommand drive2 = new TurretAimCommand();
+    //   drive2.execute();
+
+      // StopTurretAimCommand drive3 = new StopTurretAimCommand();
+      //   drive3.execute();
+    
+  //  IntakeCommand intake = new IntakeCommand();
+  //      intake.execute();
+
+    
+  //     DumpCommand dump = new DumpCommand();
+  //     dump.execute();
+  //     TarmacCommand tarmac = new TarmacCommand();
+  //     tarmac.execute();
+  //       ShootCommand shoot = new ShootCommand();
+  //       shoot.execute();
+  //       StopShootCommand noShoot = new StopShootCommand();
+  //      noShoot.execute();
+       
   }
 
  

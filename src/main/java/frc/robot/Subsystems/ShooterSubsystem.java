@@ -3,6 +3,7 @@ package frc.robot.Subsystems;
 import java.util.HashMap;
 
 import frc.robot.Constants;
+import frc.robot.Commands.IntakeCommand;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
@@ -14,6 +15,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.ControlType;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.*;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -36,6 +38,7 @@ public class ShooterSubsystem extends SubsystemBase {
 	//public double kMaxOutput,kMinOutput;
 	//public double kV;
 	//public CANPIDController TurretPIDControl;
+	public static IntakeCommand intakecmd = new IntakeCommand();
 
 	public ShooterSubsystem() {
 
@@ -55,18 +58,19 @@ public class ShooterSubsystem extends SubsystemBase {
 	  
 		//public Talon motor = new Talon(1);
 		flyWheel1 = new CANSparkMax(Constants.FLY_WHEEL_1, MotorType.kBrushless);
-		flyWheel1.setInverted(false);
+		flyWheel1.setInverted(true);
 
 		
 		
 		flyWheel2 = new CANSparkMax(Constants.FLY_WHEEL_2, MotorType.kBrushless);
-        flyWheel2.setInverted(true);
+        flyWheel2.setInverted(false);
         hood = new CANSparkMax(Constants.HOOD, MotorType.kBrushless);
 		intake = new VictorSPX(Constants.INTAKE);
 		transport1 = new CANSparkMax(Constants.TRANSPORT_1, MotorType.kBrushless);
 		transport2 = new CANSparkMax(Constants.TRANSPORT_2, MotorType.kBrushless);
 		// spin2 = new TalonSRX(22);
-		 transport2.setInverted(true);
+		 transport1.setInverted(true);
+		 transport2.setInverted(false);
 		// spin2.follow(spin);
 
 	    flyWheel1.setIdleMode(IdleMode.kCoast);
@@ -86,6 +90,11 @@ public class ShooterSubsystem extends SubsystemBase {
 	public void shoot(double speed){
 		flyWheel1.set(speed);
 		flyWheel2.set(speed);	
+	}
+
+	public void intake(){
+		
+		intakecmd.execute();
 	}
 public void rotate(double speed){
 

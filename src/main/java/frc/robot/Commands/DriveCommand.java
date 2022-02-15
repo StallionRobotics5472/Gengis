@@ -26,7 +26,7 @@ public class DriveCommand extends CommandBase {
   public void execute() {
     //DRIVER.drive.tank(OI.getX, OI.getY);
 
-    double y = -controls.getY();
+    double y = controls.getY();
     double x = controls.getX();
 
     if(Math.abs(x)<0.1)

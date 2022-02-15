@@ -18,8 +18,8 @@ public class DriveSubsystem extends SubsystemBase {
 
   //  public WPI_VictorSPX rightMaster = new WPI_VictorSPX(Constants.rightMotor);
   //  public WPI_VictorSPX leftMaster = new WPI_VictorSPX(Constants.leftMotor);
-  //  public PWMVictorSPX leftMaster = new PWMVictorSPX(Constants.leftMotor);
- //   public PWMVictorSPX rightMaster = new PWMVictorSPX(Constants.rightMotor);
+  //  public PWMVictorSPX leftMaster = new PWMVictorSPX(0);
+  //  public PWMVictorSPX rightMaster = new PWMVictorSPX(1);
       public CANSparkMax rightMaster = new CANSparkMax(Constants.rightMotor, MotorType.kBrushless);
       public CANSparkMax rightFollower = new CANSparkMax(Constants.rightFollow, MotorType.kBrushless);
       public CANSparkMax rightFollower2 = new CANSparkMax(Constants.rightFollow2, MotorType.kBrushless);
