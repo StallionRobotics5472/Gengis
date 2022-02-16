@@ -1,4 +1,4 @@
-package frc.robot.Commands;
+package frc.robot.Commands.ShooterCommands;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.revrobotics.CANSparkMax.IdleMode;

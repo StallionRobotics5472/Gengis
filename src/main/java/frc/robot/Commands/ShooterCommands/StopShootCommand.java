@@ -1,4 +1,4 @@
-package frc.robot.Commands;
+package frc.robot.Commands.ShooterCommands;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.revrobotics.CANSparkMax.IdleMode;
@@ -9,15 +9,17 @@ import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.Subsystems.ShooterSubsystem;
 
-public class DumpCommand extends CommandBase {
+public class StopShootCommand extends CommandBase {
   /**
    * Creates a new TurretShootCommand.
    */
 
-   
+   private boolean isFinished;
+   private double shootSpeed;
+   private double variable;
 
   private ShooterSubsystem shooter;
-  public DumpCommand() {
+  public StopShootCommand() {
 
     
     //addRequirements(Robot.turret);
@@ -37,8 +39,8 @@ public class DumpCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-   /* 
-    if(Robot.lidarSubsystem.getDistance()<= 300)
+    
+  /*  if(Robot.lidarSubsystem.getDistance()<= 300)
       variable = 15;
     else if(Robot.lidarSubsystem.getDistance()<=440)
       variable = 0.004*(Robot.lidarSubsystem.getDistance()-315) +42;
@@ -50,13 +52,14 @@ public class DumpCommand extends CommandBase {
       variable = (1.5/220)*(-600+Robot.lidarSubsystem.getDistance()) + 42;
 
 */
+    
+variable =1;
 
 
     
     
-    shooter.mover(1);
-    shooter.shoot(0.25);
-    //missing hood command
+    shooter.mover(0);
+    shooter.shoot(0);
   }
 
   // Called once the command ends or is interrupted.

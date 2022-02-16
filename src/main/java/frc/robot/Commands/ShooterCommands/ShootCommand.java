@@ -1,4 +1,4 @@
-package frc.robot.Commands;
+package frc.robot.Commands.ShooterCommands;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.revrobotics.CANSparkMax.IdleMode;
@@ -76,8 +76,8 @@ public class ShootCommand extends CommandBase {
 
     
 
-    shooter.mover(1);
-    shooter.shoot(1);
+    //shooter.mover(1);
+    shooter.shoot(.5);
     //missing hood command
   }
 

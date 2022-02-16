@@ -4,15 +4,12 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.Commands.DriveCommand;
-import frc.robot.Commands.DumpCommand;
-import frc.robot.Commands.IntakeCommand;
-import frc.robot.Commands.ShootCommand;
-import frc.robot.Commands.StopShootCommand;
-import frc.robot.Commands.StopTurretAimCommand;
-import frc.robot.Commands.TarmacCommand;
-import frc.robot.Commands.TurretAimCommand;
+import frc.robot.Commands.DriveCommands.DriveCommand;
+import frc.robot.Commands.ShooterCommands.ShootCommand;
+import frc.robot.Commands.DriveCommands.StopTurretAimCommand;
+import frc.robot.Commands.DriveCommands.TurretAimCommand;
 import frc.robot.Subsystems.DriveSubsystem;
+import frc.robot.Subsystems.LiftSubsystem;
 import frc.robot.Subsystems.ShooterSubsystem;
 
 
@@ -22,6 +19,7 @@ public class Robot extends TimedRobot {
   public static DriveSubsystem drive;
   public static Limelight limelight;
   public static ShooterSubsystem shooter;
+  public static LiftSubsystem lift;
     //public static Cameras cameras = new Cameras();
 
   //public static Drivetrain drive;
@@ -33,10 +31,10 @@ public class Robot extends TimedRobot {
     drive = new DriveSubsystem();
     limelight = new Limelight();
     shooter = new ShooterSubsystem();
-
+    lift = new LiftSubsystem();
   }
 
-
+  
   @Override
   public void robotPeriodic() {
     CommandScheduler.getInstance().run();

@@ -2,31 +2,29 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.Commands;
+package frc.robot.Commands.LiftCommands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
-import frc.robot.Subsystems.ShooterSubsystem;
+import frc.robot.Subsystems.LiftSubsystem;
 
-public class StopHoodCommand extends CommandBase {
-  /** Creates a new HoodCommand. */
-  ShooterSubsystem shooter;
-  public StopHoodCommand() {
+public class StopLiftFlipCommand extends CommandBase {
+  /** Creates a new StopLiftFlipCommand. */
+  private LiftSubsystem lift;
+  public StopLiftFlipCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-
-    shooter = Robot.shooter;
+    lift = Robot.lift;
   }
-  
+
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-
-    shooter.rotate(0);
+    lift.flip(0);
   }
 
   // Called once the command ends or is interrupted.

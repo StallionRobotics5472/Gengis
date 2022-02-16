@@ -3,18 +3,22 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.Commands.DumpCommand;
-import frc.robot.Commands.HoodCommand25;
-import frc.robot.Commands.HoodCommand30;
-import frc.robot.Commands.HoodCommand35;
-import frc.robot.Commands.IntakeCommand;
-import frc.robot.Commands.ShootCommand;
-import frc.robot.Commands.StopHoodCommand;
-import frc.robot.Commands.StopIntakeCommand;
-import frc.robot.Commands.StopShootCommand;
-import frc.robot.Commands.StopTurretAimCommand;
-import frc.robot.Commands.TarmacCommand;
-import frc.robot.Commands.TurretAimCommand;
+import frc.robot.Commands.ShooterCommands.DumpCommand;
+import frc.robot.Commands.ShooterCommands.HoodCommand25;
+import frc.robot.Commands.ShooterCommands.HoodCommand30;
+import frc.robot.Commands.ShooterCommands.HoodCommand35;
+import frc.robot.Commands.ShooterCommands.IntakeCommand;
+import frc.robot.Commands.LiftCommands.LiftExtendCommand;
+import frc.robot.Commands.LiftCommands.LiftFlipCommand;
+import frc.robot.Commands.LiftCommands.StopLiftExtendCommand;
+import frc.robot.Commands.LiftCommands.StopLiftFlipCommand;
+import frc.robot.Commands.ShooterCommands.ShootCommand;
+import frc.robot.Commands.ShooterCommands.StopHoodCommand;
+import frc.robot.Commands.ShooterCommands.StopIntakeCommand;
+import frc.robot.Commands.ShooterCommands.StopShootCommand;
+import frc.robot.Commands.DriveCommands.StopTurretAimCommand;
+import frc.robot.Commands.ShooterCommands.TarmacCommand;
+import frc.robot.Commands.DriveCommands.TurretAimCommand;
 
 /**
  * Add your docs here.
@@ -33,6 +37,8 @@ public class Controls {
     public JoystickButton hood;
     public JoystickButton hood1;
     public JoystickButton hood2;
+    public JoystickButton lift;
+    public JoystickButton lift2;
 
 
     //creates Joystick Object
@@ -43,6 +49,8 @@ public class Controls {
         turretAim = new JoystickButton(playerTwo, Constants.BUTTON_B);
         shoot = new JoystickButton(playerTwo, Constants.BUTTON_A);
         intake = new JoystickButton(playerTwo, Constants.BUTTON_X);
+        //lift = new JoystickButton(playerTwo, Constants.WINDOW_BUTTON);
+        //lift2 = new JoystickButton(playerTwo, Constants.MENU_BUTTON);
         // dump = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
         // tarmac = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
         // hood2 = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
@@ -58,6 +66,10 @@ public class Controls {
         shoot.whenReleased(new StopShootCommand());
         intake.whileHeld(new IntakeCommand());
         intake.whenReleased(new StopIntakeCommand());
+        //lift.whileHeld(new LiftExtendCommand());
+        //lift.whenReleased(new StopLiftExtendCommand());
+        //lift2.whileHeld(new LiftFlipCommand());
+        //lift2.whenReleased(new StopLiftFlipCommand());
         // dump.whileHeld(new DumpCommand());
         // dump.whenReleased(new StopShootCommand());
         // tarmac.whileHeld(new TarmacCommand());

@@ -3,8 +3,6 @@ package frc.robot.Subsystems;
 import java.util.HashMap;
 
 import frc.robot.Constants;
-import frc.robot.Commands.IntakeCommand;
-
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.VictorSPXSimCollection;
@@ -38,7 +36,6 @@ public class ShooterSubsystem extends SubsystemBase {
 	//public double kMaxOutput,kMinOutput;
 	//public double kV;
 	//public CANPIDController TurretPIDControl;
-	public static IntakeCommand intakecmd = new IntakeCommand();
 
 	public ShooterSubsystem() {
 
@@ -92,10 +89,6 @@ public class ShooterSubsystem extends SubsystemBase {
 		flyWheel2.set(speed);	
 	}
 
-	public void intake(){
-		
-		intakecmd.execute();
-	}
 public void rotate(double speed){
 
 	hood.set(speed);
