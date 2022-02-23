@@ -3,16 +3,20 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.Commands.ShooterCommands.BackBeltCommand;
 import frc.robot.Commands.ShooterCommands.DumpCommand;
 import frc.robot.Commands.ShooterCommands.HoodCommand25;
 import frc.robot.Commands.ShooterCommands.HoodCommand30;
 import frc.robot.Commands.ShooterCommands.HoodCommand35;
 import frc.robot.Commands.ShooterCommands.IntakeCommand;
+import frc.robot.Commands.LiftCommands.BackLiftExtendCommand;
+import frc.robot.Commands.LiftCommands.BackLiftFlipCommand;
 import frc.robot.Commands.LiftCommands.LiftExtendCommand;
 import frc.robot.Commands.LiftCommands.LiftFlipCommand;
 import frc.robot.Commands.LiftCommands.StopLiftExtendCommand;
 import frc.robot.Commands.LiftCommands.StopLiftFlipCommand;
 import frc.robot.Commands.ShooterCommands.ShootCommand;
+import frc.robot.Commands.ShooterCommands.StopBackBeltCommand;
 import frc.robot.Commands.ShooterCommands.StopHoodCommand;
 import frc.robot.Commands.ShooterCommands.StopIntakeCommand;
 import frc.robot.Commands.ShooterCommands.StopShootCommand;
@@ -39,6 +43,9 @@ public class Controls {
     public JoystickButton hood2;
     public JoystickButton lift;
     public JoystickButton lift2;
+    public JoystickButton lift3;
+    public JoystickButton lift4;
+    public JoystickButton backbelt;
 
 
     //creates Joystick Object
@@ -49,12 +56,15 @@ public class Controls {
         turretAim = new JoystickButton(playerTwo, Constants.BUTTON_B);
         shoot = new JoystickButton(playerTwo, Constants.BUTTON_A);
         intake = new JoystickButton(playerTwo, Constants.BUTTON_X);
-        //lift = new JoystickButton(playerTwo, Constants.WINDOW_BUTTON);
-        //lift2 = new JoystickButton(playerTwo, Constants.MENU_BUTTON);
+        backbelt = new JoystickButton(playerTwo, Constants.BUTTON_Y);
+        lift = new JoystickButton(playerOne, Constants.BUTTON_A);
+        lift2 = new JoystickButton(playerOne, Constants.BUTTON_Y);
+        lift3 = new JoystickButton(playerOne, Constants.BUTTON_X);
+        lift4 = new JoystickButton(playerOne, Constants.BUTTON_B);
         // dump = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
         // tarmac = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
         // hood2 = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
-        // hood1 = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
+        //hood1 = new JoystickButton(playerTwo, Constants.BUTTON_Y);
         // hood = new JoystickButton(playerTwo, Constants.BUTTON_Y);
         configureButtonBindings();
     }
@@ -66,19 +76,25 @@ public class Controls {
         shoot.whenReleased(new StopShootCommand());
         intake.whileHeld(new IntakeCommand());
         intake.whenReleased(new StopIntakeCommand());
-        //lift.whileHeld(new LiftExtendCommand());
-        //lift.whenReleased(new StopLiftExtendCommand());
-        //lift2.whileHeld(new LiftFlipCommand());
-        //lift2.whenReleased(new StopLiftFlipCommand());
+        backbelt.whileHeld(new BackBeltCommand());
+        backbelt.whenReleased(new StopBackBeltCommand());
+        lift.whileHeld(new LiftExtendCommand());
+        lift.whenReleased(new StopLiftExtendCommand());
+        lift2.whileHeld(new LiftFlipCommand());
+        lift2.whenReleased(new StopLiftFlipCommand());
+        lift3.whileHeld(new BackLiftExtendCommand());
+        lift3.whenReleased(new StopLiftExtendCommand());
+        lift4.whileHeld(new BackLiftFlipCommand());
+        lift4.whenReleased(new StopLiftFlipCommand());
         // dump.whileHeld(new DumpCommand());
         // dump.whenReleased(new StopShootCommand());
         // tarmac.whileHeld(new TarmacCommand());
         // tarmac.whenReleased(new StopShootCommand());
         // hood.whenPressed(new HoodCommand35());
         // hood2.whenPressed(new HoodCommand30());
-        // hood1.whenPressed(new HoodCommand25());
+        //hood1.whileHeld(new HoodCommand25());
         // hood.whenReleased(new StopHoodCommand());
-        // hood1.whenReleased(new StopHoodCommand());
+        //hood1.whenReleased(new StopHoodCommand());
         // hood2.whenReleased(new StopHoodCommand());
 
         

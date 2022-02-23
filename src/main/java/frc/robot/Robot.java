@@ -67,6 +67,8 @@ public class Robot extends TimedRobot {
 public void teleopInit() {
 DriveCommand drive1 = new DriveCommand();
 drive1.schedule();
+
+//shooter.rotate(0.5);
 //  TurretAimCommand drive2 = new TurretAimCommand();
 // drive2.schedule();
 // StopTurretAimCommand drive3 = new StopTurretAimCommand();

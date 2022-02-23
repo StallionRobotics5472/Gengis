@@ -3,6 +3,8 @@ package frc.robot.Subsystems;
 import java.util.HashMap;
 
 import frc.robot.Constants;
+
+import com.ctre.phoenix.led.CANdle;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.VictorSPXSimCollection;
@@ -28,6 +30,7 @@ public class ShooterSubsystem extends SubsystemBase {
 	public VictorSPX intake;
 	public CANSparkMax transport1;
 	public CANSparkMax transport2;
+	public CANSparkMax back_belt;
 	//public double kp;
 	//public double kI;
 	//public double kD;
@@ -72,6 +75,8 @@ public class ShooterSubsystem extends SubsystemBase {
 
 	    flyWheel1.setIdleMode(IdleMode.kCoast);
         flyWheel2.setIdleMode(IdleMode.kCoast);
+		
+		back_belt = new CANSparkMax(Constants.BACK_BELT, MotorType.kBrushless);
         
 		
 	}
@@ -87,6 +92,10 @@ public class ShooterSubsystem extends SubsystemBase {
 	public void shoot(double speed){
 		flyWheel1.set(speed);
 		flyWheel2.set(speed);	
+	}
+	
+	public void spinback(double speed){
+		back_belt.set(speed);
 	}
 
 public void rotate(double speed){

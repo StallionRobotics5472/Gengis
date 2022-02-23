@@ -8,10 +8,10 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.Subsystems.LiftSubsystem;
 
-public class LiftFlipCommand extends CommandBase {
-  /** Creates a new LiftFlipCommand. */
+public class BackLiftExtendCommand extends CommandBase {
+  /** Creates a new LiftExtendCommand. */
   private LiftSubsystem lift;
-  public LiftFlipCommand() {
+  public BackLiftExtendCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -24,7 +24,7 @@ public class LiftFlipCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    lift.flip(0.15);
+    lift.extend(0.15);
   }
 
   // Called once the command ends or is interrupted.
