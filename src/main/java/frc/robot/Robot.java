@@ -16,7 +16,6 @@ import frc.robot.Subsystems.LidarSubsystem;
 import frc.robot.Subsystems.LiftSubsystem;
 import frc.robot.Subsystems.ShooterSubsystem;
 
-
 public class Robot extends TimedRobot {
 
   public static Controls controls;
@@ -26,9 +25,9 @@ public class Robot extends TimedRobot {
   public static LiftSubsystem lift;
   public static LidarSubsystem lidarSubsystem;
   public SendableChooser autoChooser;
-    //public static Cameras cameras = new Cameras();
+  // public static Cameras cameras = new Cameras();
 
-  //public static Drivetrain drive;
+  // public static Drivetrain drive;
 
   @Override
   public void robotInit() {
@@ -44,7 +43,6 @@ public class Robot extends TimedRobot {
     CameraServer.startAutomaticCapture();
   }
 
-  
   @Override
   public void robotPeriodic() {
     CommandScheduler.getInstance().run();
@@ -52,25 +50,21 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledInit() {
-       
+
   }
 
   @Override
   public void disabledPeriodic() {
-    
+
   }
 
- 
   @Override
   public void autonomousInit() {
-  
+
     CommandGroupBase BallAuto = new RunAuto();
     BallAuto.schedule();
-   
-    
-    
-  }
 
+  }
 
   @Override
   public void autonomousPeriodic() {
@@ -78,73 +72,63 @@ public class Robot extends TimedRobot {
   }
 
   @Override
-public void teleopInit() {
-DriveCommand drive1 = new DriveCommand();
-drive1.schedule();
+  public void teleopInit() {
+    DriveCommand drive1 = new DriveCommand();
+    drive1.schedule();
 
-shooter.rotate0();
+    shooter.rotate0();
 
-//shooter.rotate(0.5);
-//  TurretAimCommand drive2 = new TurretAimCommand();
-// drive2.schedule();
-// StopTurretAimCommand drive3 = new StopTurretAimCommand();
-//  drive3.schedule();
+    // shooter.rotate(0.5);
+    // TurretAimCommand drive2 = new TurretAimCommand();
+    // drive2.schedule();
+    // StopTurretAimCommand drive3 = new StopTurretAimCommand();
+    // drive3.schedule();
 
- 
-// IntakeCommand intake = new IntakeCommand();
-// intake.schedule();
+    // IntakeCommand intake = new IntakeCommand();
+    // intake.schedule();
 
-
-// DumpCommand dump = new DumpCommand();
-//  dump.schedule();
-// TarmacCommand tarmac = new TarmacCommand();
-//  tarmac.schedule();
-// ShootCommand shoot = new ShootCommand();
-//     shoot.schedule();
-
+    // DumpCommand dump = new DumpCommand();
+    // dump.schedule();
+    // TarmacCommand tarmac = new TarmacCommand();
+    // tarmac.schedule();
+    // ShootCommand shoot = new ShootCommand();
+    // shoot.schedule();
 
   }
 
-  
   @Override
-  public void teleopPeriodic() {  
+  public void teleopPeriodic() {
 
     SmartDashboard.putNumber("hoodEncoder", shooter.getHoodEncoder());
     SmartDashboard.putNumber("Turret Encoder Value", Robot.shooter.hood.getEncoder().getPosition());
     SmartDashboard.putNumber("LIDAR - in robot class ", Robot.lidarSubsystem.getDistance());
-      // shooter.intake();
+    // shooter.intake();
 
-  // DriveCommand drive1 = new DriveCommand();
-  // drive1.execute();
+    // DriveCommand drive1 = new DriveCommand();
+    // drive1.execute();
 
-//prob wrong
+    // prob wrong
 
+    // TurretAimCommand drive2 = new TurretAimCommand();
+    // drive2.execute();
 
+    // StopTurretAimCommand drive3 = new StopTurretAimCommand();
+    // drive3.execute();
 
+    // IntakeCommand intake = new IntakeCommand();
+    // intake.execute();
 
-    //  TurretAimCommand drive2 = new TurretAimCommand();
-    //   drive2.execute();
+    // DumpCommand dump = new DumpCommand();
+    // dump.execute();
+    // TarmacCommand tarmac = new TarmacCommand();
+    // tarmac.execute();
+    // ShootCommand shoot = new ShootCommand();
+    // shoot.execute();
+    // StopShootCommand noShoot = new StopShootCommand();
+    // noShoot.execute();
 
-      // StopTurretAimCommand drive3 = new StopTurretAimCommand();
-      //   drive3.execute();
-    
-  //  IntakeCommand intake = new IntakeCommand();
-  //      intake.execute();
-
-    
-  //     DumpCommand dump = new DumpCommand();
-  //     dump.execute();
-  //     TarmacCommand tarmac = new TarmacCommand();
-  //     tarmac.execute();
-  //       ShootCommand shoot = new ShootCommand();
-  //       shoot.execute();
-  //       StopShootCommand noShoot = new StopShootCommand();
-  //      noShoot.execute();
-       
   }
 
- 
-  
   @Override
   public void testPeriodic() {
   }
