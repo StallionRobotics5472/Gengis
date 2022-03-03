@@ -5,6 +5,7 @@
 package frc.robot.Subsystems;
 
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -17,7 +18,6 @@ public class LiftSubsystem extends SubsystemBase {
   public CANSparkMax lift3 = new CANSparkMax(Constants.LIFT_3, MotorType.kBrushless);
   public CANSparkMax lift4 = new CANSparkMax(Constants.LIFT_4, MotorType.kBrushless);
   public LiftSubsystem() {
-
     
   }
   public void extend(double speed){

@@ -23,10 +23,13 @@ public class AutoTransport extends CommandBase {
 
 
         if(Timer.getFPGATimestamp() - starttime <= 5){
-            Robot.shooter.shoot(-0.55);
-            Robot.shooter.spinback(1);
-            Robot.shooter.mover(1);
-            Robot.shooter.spin(1);
+           //Two ball
+           //Robot.shooter.shoot(-0.55);
+           // One Ball
+           Robot.shooter.shoot(-0.36);
+            Robot.shooter.spinback(0.5);
+            Robot.shooter.mover(0.3);
+            Robot.shooter.spin(0.7);
 
         }else {
           Robot.shooter.shoot(0);

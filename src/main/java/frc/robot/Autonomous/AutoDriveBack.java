@@ -22,7 +22,9 @@ public class AutoDriveBack extends CommandBase {
         
 
 
-        if(Timer.getFPGATimestamp() - starttime <= 1.1){
+        if(Timer.getFPGATimestamp() - starttime <= 2.25){
+          // 1.1 s for two ball
+          
             Robot.drive.leftMaster.set(0.19);
            // Robot.drive.leftFollower.set(ControlMode.PercentOutput, 0.5);
            // Robot.shooter.spin(0.75);

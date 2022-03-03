@@ -45,8 +45,8 @@ public class DriveSubsystem extends SubsystemBase {
      leftFollower2.follow(leftMaster);
       }
       public void rotate(double speed){
-        leftMaster.set(-speed*0.25);
-        rightMaster.set(speed*.25);
+        leftMaster.set(-speed*0.15);
+        rightMaster.set(speed*0.15);
 
       }
 
