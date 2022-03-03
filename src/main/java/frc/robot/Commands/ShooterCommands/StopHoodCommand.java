@@ -26,7 +26,7 @@ public class StopHoodCommand extends CommandBase {
   @Override
   public void execute() {
 
-  
+    shooter.rotate25(0);
   }
 
   // Called once the command ends or is interrupted.

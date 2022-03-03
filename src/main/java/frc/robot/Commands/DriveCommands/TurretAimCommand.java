@@ -50,7 +50,7 @@ public class TurretAimCommand extends CommandBase {
 
     
             double horizontalError = limelight.getHorizontalAngle();
-            SmartDashboard.putNumber("ty", limelight.getHorizontalAngle());
+            SmartDashboard.putNumber("ty", limelight.getVerticalAngle());
             turn = horizontalError * -0.01;
         
         SmartDashboard.putNumber("Turret Rotation", turn);
@@ -62,17 +62,17 @@ public class TurretAimCommand extends CommandBase {
         
        
         
-        if(Math.abs(limelight.getHorizontalAngle()) < 0.5){
+        if(Math.abs(limelight.getVerticalAngle()) < 0.5){
             SmartDashboard.putBoolean("LimelightAim", true);
             finished = true;
         }
-        else   if (Math.abs(limelight.getHorizontalAngle()) < 5)
+        else   if (Math.abs(limelight.getVerticalAngle()) < 5)
             turn*=3;
-        else   if(Math.abs(limelight.getHorizontalAngle()) < 4)
+        else   if(Math.abs(limelight.getVerticalAngle()) < 4)
             turn*=4;
-        else   if(Math.abs(limelight.getHorizontalAngle()) < 2.5)
+        else   if(Math.abs(limelight.getVerticalAngle()) < 2.5)
             turn*=5;
-        else   if(Math.abs(limelight.getHorizontalAngle()) < 1)
+        else   if(Math.abs(limelight.getVerticalAngle()) < 1)
             turn*=6;
         else{
             turn*=2;

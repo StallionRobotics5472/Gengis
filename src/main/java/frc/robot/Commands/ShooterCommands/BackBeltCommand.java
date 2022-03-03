@@ -24,8 +24,8 @@ public class BackBeltCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    shooter.spinback(1);
-    shooter.mover(0.35);
+    shooter.spinback(.50);
+    shooter.mover(0.30);
   }
 
   // Called once the command ends or is interrupted.

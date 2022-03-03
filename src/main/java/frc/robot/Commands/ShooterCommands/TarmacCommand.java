@@ -56,7 +56,7 @@ public class TarmacCommand extends CommandBase {
 
     
     
-    shooter.shoot(-0.5);
+    shooter.shoot(-0.46);
     //shooter.shoot(variable); Dont Know value
     //missing hood command
   }

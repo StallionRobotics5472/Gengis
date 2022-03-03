@@ -121,11 +121,11 @@ public class Limelight {
 	
 	
 	public double getHorizontalAngle() {
-		return limeLightTable.getEntry(HORIZONTAL_ANGLE).getDouble(360.0);
+		return limeLightTable.getEntry(HORIZONTAL_ANGLE).getDouble(0.0);
 	}
 	
 	public double getVerticalAngle() {
-		return limeLightTable.getEntry(VERTICAL_ANGLE).getDouble(0.0);
+		return limeLightTable.getEntry(VERTICAL_ANGLE).getDouble(360.0);
 	}
 	
 	public double getTargetArea() {

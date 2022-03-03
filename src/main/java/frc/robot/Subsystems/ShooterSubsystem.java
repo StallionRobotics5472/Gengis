@@ -103,9 +103,9 @@ public void rotate35(){
 
 	hood.getEncoder().setPosition(20);
 }
-public void rotate25(){
+public void rotate25(double speed){
 
-	hood.getEncoder().setPosition(0);
+	hood.set(speed);
 }
 public void rotate30(){
 
@@ -113,7 +113,7 @@ public void rotate30(){
 }
 public void rotate0(){
 
-	hood.getEncoder().setPosition(8);
+	hood.getEncoder().setPosition(-10);
 }
 public double getHoodEncoder(){
 	return hood.getEncoder().getPosition();

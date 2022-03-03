@@ -13,13 +13,13 @@ import frc.robot.Robot;
 import frc.robot.Subsystems.ShooterSubsystem;
 
 
-public class IntakeCommand extends CommandBase {
+public class ReverseIntake extends CommandBase {
   /**
    * Creates a new BallChamberIntakeCommand.
    */
   private boolean isFinished;
   private ShooterSubsystem shooter;
-  public IntakeCommand() {
+  public ReverseIntake() {
     // Use addRequirements() here to declare subsystem dependencies.
     //addRequirements(Robot.ballChamber);
 
@@ -36,7 +36,7 @@ public class IntakeCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    shooter.spin(.7);
+    shooter.spin(-.5);
    
 }
     

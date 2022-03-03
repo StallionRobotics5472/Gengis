@@ -22,6 +22,6 @@ public class RunAuto extends SequentialCommandGroup {
     // Add your commands in the super() call, e.g.
     // super(new FooCommand(), new BarCommand());
   //  super(new AutoClimb(), new AutoDrive(), new AutoIntake(),  new WaitCommand(1), new AutoDriveBack(), new WaitCommand(1), new Auto180(), new WaitCommand(1), new AutoShoot(), new AutoTransport() );
-    super(new WaitCommand(1), new AutoShoot(), new AutoTransport() ); 
+    super(new ClimbAuto(), new ClimbAuto2(), new ClimbAuto3()); 
   }
 }

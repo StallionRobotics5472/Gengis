@@ -10,6 +10,7 @@ import frc.robot.Commands.ShooterCommands.HoodCommand30;
 import frc.robot.Commands.ShooterCommands.HoodCommand35;
 import frc.robot.Commands.ShooterCommands.IntakeCommand;
 import frc.robot.Commands.ShooterCommands.MaxCommand;
+import frc.robot.Commands.ShooterCommands.ReverseIntake;
 import frc.robot.Commands.LiftCommands.BackLiftExtendCommand;
 import frc.robot.Commands.LiftCommands.BackLiftFlipCommand;
 import frc.robot.Commands.LiftCommands.BackLiftGrabCommand;
@@ -53,6 +54,7 @@ public class Controls {
     public JoystickButton backbelt;
     public JoystickButton lift6;
     public JoystickButton max;
+    public JoystickButton reverse;
 
 
 
@@ -62,11 +64,11 @@ public class Controls {
         //super(ControlsPort);
         playerOne = new Joystick(Constants.PLAYER_ONE_PORT);
         playerTwo = new Joystick(Constants.PLAYER_TWO_PORT);
-        turretAim = new JoystickButton(playerTwo, Constants.BUTTON_B);
+        turretAim = new JoystickButton(playerTwo, Constants.START_BUTTON);
         shoot = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
-        dump = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
+        //dump = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
         tarmac = new JoystickButton(playerTwo, Constants.BUTTON_A);
-        max = new JoystickButton(playerTwo, Constants.BUTTON_X);
+        max = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
         intake = new JoystickButton(playerOne, Constants.BUTTON_X);
         backbelt = new JoystickButton(playerTwo, Constants.BUTTON_Y);
         lift1 = new JoystickButton(playerOne, Constants.BUTTON_A);
@@ -77,9 +79,10 @@ public class Controls {
         lift6 = new JoystickButton(playerOne, Constants.BACK_BUTTON);
         // dump = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
         // tarmac = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
-        // hood2 = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
-        hood1 = new JoystickButton(playerTwo, Constants.BACK_BUTTON);
-         hood = new JoystickButton(playerTwo, Constants.START_BUTTON);
+        hood2 = new JoystickButton(playerTwo, Constants.BUTTON_B);
+        hood1 = new JoystickButton(playerTwo, Constants.BUTTON_X);
+        reverse = new JoystickButton(playerOne, Constants.BACK_RIGHT_BUTTON);
+        //hood = new JoystickButton(playerTwo, Constants.BUTTON_B);
         configureButtonBindings();
     }
 
@@ -104,19 +107,20 @@ public class Controls {
         lift5.whenReleased(new StopLiftGrabCommand());
         lift6.whenReleased(new StopLiftGrabCommand());
         lift6.whileHeld(new BackLiftGrabCommand());
-         dump.whileHeld(new DumpCommand());
-         dump.whenReleased(new StopShootCommand());
+        
          tarmac.whileHeld(new TarmacCommand());
          tarmac.whenReleased(new StopShootCommand());
          max.whileHeld(new MaxCommand());
          max.whenReleased(new StopShootCommand());
-         hood.whenPressed(new HoodCommand35());
+         //hood.whenPressed(new HoodCommand35());
          //hood.whenReleased(new StopHoodCommand());
-        // hood2.whenPressed(new HoodCommand30());
-        hood1.whenPressed(new HoodCommand25());
+        hood2.whileHeld(new HoodCommand30());
+        hood1.whileHeld(new HoodCommand25());
         // hood.whenReleased(new StopHoodCommand());
-       // hood1.whenReleased(new StopHoodCommand());
-        // hood2.whenReleased(new StopHoodCommand());
+        hood1.whenReleased(new StopHoodCommand());
+        hood2.whenReleased(new StopHoodCommand());
+        reverse.whileHeld(new ReverseIntake());
+        reverse.whileHeld(new StopIntakeCommand());
 
         
     }   
