@@ -6,17 +6,33 @@ package frc.robot.Subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.kauailabs.navx.frc.AHRS;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import frc.robot.Constants;
+import frc.robot.Robot;
 import edu.wpi.first.wpilibj.motorcontrol.PWMVictorSPX;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj.SPI;
 
 /** Add your docs here. */
 public class DriveSubsystem extends SubsystemBase {
+
+  private AHRS navx = new AHRS(SPI.Port.kMXP);
+
+  public double getHeading() {
+		return -navx.getAngle();
+	}
+
+  public double getLeftPercent() {
+		return Robot.drive.leftMaster.getAppliedOutput();
+	}
+  public double getRightPercent() {
+		return Robot.drive.rightMaster.getAppliedOutput();
+	}
 
   // public WPI_VictorSPX rightMaster = new WPI_VictorSPX(Constants.rightMotor);
   // public WPI_VictorSPX leftMaster = new WPI_VictorSPX(Constants.leftMotor);
@@ -64,6 +80,12 @@ public class DriveSubsystem extends SubsystemBase {
     rightMaster.set(speed * 0.15);
 
   }
+
+  public void drive(double left, double right) {
+		this.leftMaster.set(left);
+		this.rightMaster.set(right);
+		
+	}
 
   public void arcade(double move, double turn) {
     // drive.arcadeDrive(move, turn);
