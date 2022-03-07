@@ -21,11 +21,12 @@ import edu.wpi.first.wpilibj.SPI;
 /** Add your docs here. */
 public class DriveSubsystem extends SubsystemBase {
 
-  private AHRS navx = new AHRS(SPI.Port.kMXP);
+  public AHRS navx = new AHRS(SPI.Port.kMXP);
 
   public double getHeading() {
-		return -navx.getAngle();
+		return -navx.getRotation2d().getDegrees();
 	}
+  
 
   public double getLeftPercent() {
 		return Robot.drive.leftMaster.getAppliedOutput();

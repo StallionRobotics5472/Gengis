@@ -53,7 +53,10 @@ public class Constants {
       
         
 		    
-
+        public static final double MAX_DISTANCE = 600;
+        public static final double MIN_DISTANCE = 100;
+        public static final double HOOD_ENCODER = 1.5;
+        
 
 
 

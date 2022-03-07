@@ -31,11 +31,12 @@ public class ShooterSubsystem extends SubsystemBase {
 	public CANSparkMax transport1;
 	public CANSparkMax transport2;
 	public CANSparkMax back_belt;
+	public RelativeEncoder hoodEncoder;
 	//public double kp;
 	//public double kI;
 	//public double kD;
 	//public double kIz;
-	//public double kFF;
+	//public double kFF; 
 	//public double kMaxOutput,kMinOutput;
 	//public double kV;
 	//public CANPIDController TurretPIDControl;
@@ -69,6 +70,7 @@ public class ShooterSubsystem extends SubsystemBase {
 		intake = new VictorSPX(Constants.INTAKE);
 		transport1 = new CANSparkMax(Constants.TRANSPORT_1, MotorType.kBrushless);
 		transport2 = new CANSparkMax(Constants.TRANSPORT_2, MotorType.kBrushless);
+		hoodEncoder = hood.getEncoder();
 		// spin2 = new TalonSRX(22);
 		 transport1.setInverted(true);
 		 transport2.setInverted(false);
@@ -99,22 +101,11 @@ public class ShooterSubsystem extends SubsystemBase {
 		back_belt.set(speed);
 	}
 
-public void rotate35(){
 
-	hood.getEncoder().setPosition(20);
-}
-public void rotate25(double speed){
 
-	hood.set(speed);
-}
-public void rotate30(){
 
-	hood.getEncoder().setPosition(6);
-}
-public void rotate0(){
 
-	hood.getEncoder().setPosition(-10);
-}
+
 public double getHoodEncoder(){
 	return hood.getEncoder().getPosition();
 }

@@ -11,6 +11,7 @@ import frc.robot.Subsystems.ShooterSubsystem;
 public class HoodCommand25 extends CommandBase {
   /** Creates a new HoodCommand. */
   ShooterSubsystem shooter;
+  private double kP;
   public HoodCommand25() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -20,13 +21,23 @@ public class HoodCommand25 extends CommandBase {
   public void initialize() {
 
     shooter = Robot.shooter;
+    kP = 0.09;
   }
   
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
 
-    shooter.rotate25(-0.15);
+    double setPoint = 0;
+    //set point = feet
+            double sensorPosition = (Robot.shooter.hood.getEncoder().getPosition())*-1;
+    
+            double error = setPoint - sensorPosition;
+
+            double outputSpeed = kP * error;
+            
+    
+            Robot.shooter.hood.set(-outputSpeed);
   }
 
   // Called once the command ends or is interrupted.

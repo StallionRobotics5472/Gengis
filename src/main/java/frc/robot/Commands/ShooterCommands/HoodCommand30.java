@@ -26,7 +26,7 @@ public class HoodCommand30 extends CommandBase {
   @Override
   public void execute() {
 
-    shooter.rotate25(0.15);
+   // shooter.rotate25(0.15);
   }
 
   // Called once the command ends or is interrupted.

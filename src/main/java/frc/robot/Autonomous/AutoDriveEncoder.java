@@ -11,19 +11,26 @@ public class AutoDriveEncoder extends CommandBase {
 
     private boolean completed;
 
-    double kP = 0;
+    double kP = 1e-4;
 
     public void initialize() {
 
     }
 
     public void execute() {
-
+//increased by 12 encoder per 2 feet
         double setPoint = 10;
+//set point = feet
         double sensorPosition = Robot.drive.rightMaster.getEncoder().getPosition();
+        //double sensorRight = ((Robot.drive.rightMaster.getEncoder().getPosition())/5.854840088);
+        //double sensorLeft = ((Robot.drive.leftMaster.getEncoder().getPosition())/6.052478409);
 
         double error = setPoint - sensorPosition;
+        //double errorRight = setPoint - sensorRight;
+        //double errorLeft = setPoint - sensorLeft;
         double outputSpeed = kP * error;
+        //double outputSpeedRight = kP * errorRight
+        //double outputSpeedLeft` = kP * errorLeft
 
         Robot.drive.rightMaster.set(outputSpeed);
         Robot.drive.leftMaster.set(-outputSpeed);

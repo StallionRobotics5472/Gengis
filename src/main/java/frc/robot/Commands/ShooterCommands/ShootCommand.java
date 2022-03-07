@@ -76,7 +76,7 @@ public class ShootCommand extends CommandBase {
 
     
 
-    //shooter.mover(0.35);
+    //shooter.mover(0.36);
     shooter.shoot(-.36);
     //missing hood command
   }

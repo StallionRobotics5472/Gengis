@@ -17,6 +17,8 @@ import frc.robot.Commands.LiftCommands.BackLiftGrabCommand;
 import frc.robot.Commands.LiftCommands.LiftExtendCommand;
 import frc.robot.Commands.LiftCommands.LiftFlipCommand;
 import frc.robot.Commands.LiftCommands.LiftGrabCommand;
+import frc.robot.Commands.LiftCommands.PIDLiftExtendCommand;
+import frc.robot.Commands.LiftCommands.PIDLiftFlipCommand;
 import frc.robot.Commands.LiftCommands.StopLiftExtendCommand;
 import frc.robot.Commands.LiftCommands.StopLiftFlipCommand;
 import frc.robot.Commands.LiftCommands.StopLiftGrabCommand;
@@ -28,6 +30,7 @@ import frc.robot.Commands.ShooterCommands.StopShootCommand;
 import frc.robot.Commands.DriveCommands.StopTurretAimCommand;
 import frc.robot.Commands.ShooterCommands.TarmacCommand;
 import frc.robot.Commands.DriveCommands.TurretAimCommand;
+
 
 /**
  * Add your docs here.
@@ -84,7 +87,7 @@ public class Controls {
         reverse = new JoystickButton(playerOne, Constants.BACK_RIGHT_BUTTON);
         //hood = new JoystickButton(playerTwo, Constants.BUTTON_B);
         configureButtonBindings();
-    }
+        }
 
     private void configureButtonBindings() {
         turretAim.whileHeld(new TurretAimCommand());
@@ -95,9 +98,9 @@ public class Controls {
         intake.whenReleased(new StopIntakeCommand());
         backbelt.whileHeld(new BackBeltCommand());
         backbelt.whenReleased(new StopBackBeltCommand());
-        lift1.whileHeld(new LiftExtendCommand());
+        lift1.whileHeld(new PIDLiftExtendCommand());
         lift1.whenReleased(new StopLiftExtendCommand());
-        lift2.whileHeld(new LiftFlipCommand());
+        lift2.whileHeld(new PIDLiftFlipCommand());
         lift2.whenReleased(new StopLiftFlipCommand());
         lift3.whileHeld(new BackLiftExtendCommand());
         lift3.whenReleased(new StopLiftExtendCommand());
@@ -114,7 +117,7 @@ public class Controls {
          max.whenReleased(new StopShootCommand());
          //hood.whenPressed(new HoodCommand35());
          //hood.whenReleased(new StopHoodCommand());
-        hood2.whileHeld(new HoodCommand30());
+        hood2.whileHeld(new HoodCommand35());
         hood1.whileHeld(new HoodCommand25());
         // hood.whenReleased(new StopHoodCommand());
         hood1.whenReleased(new StopHoodCommand());
