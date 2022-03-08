@@ -78,7 +78,8 @@ public class ShootCommand extends CommandBase {
 
     //shooter.mover(0.36);
     shooter.shoot(-.36);
-    //missing hood command
+    //missing hood commandd
+    
   }
 
   // Called once the command ends or is interrupted.

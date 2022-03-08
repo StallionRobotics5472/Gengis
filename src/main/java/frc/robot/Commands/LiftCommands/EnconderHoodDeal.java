@@ -4,43 +4,58 @@
 
 package frc.robot.Commands.LiftCommands;
 
+import java.io.Console;
+
+import com.revrobotics.RelativeEncoder;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
-import frc.robot.Subsystems.LiftSubsystem;
+import frc.robot.Subsystems.ShooterSubsystem;
 
-public class PIDLiftExtendCommand extends CommandBase {
-  /** Creates a new LiftExtendCommand. */
-  private LiftSubsystem lift;
-  private double kP;
+public class EnconderHoodDeal extends CommandBase {
+  /** Creates a new EnconderLiftDeal. */
 
-  public PIDLiftExtendCommand() {
+  private ShooterSubsystem shooter;
+
+  
+
+  private double setPoint;
+  public EnconderHoodDeal(double Encoder) {
     // Use addRequirements() here to declare subsystem dependencies.
+
+    setPoint = Encoder;
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    lift = Robot.lift;
-    kP = 0.09;
+    shooter = Robot.shooter;
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
 
-    double setPoint = 23;
+    double kP = 0.1031;
+    // double setPoint = 25;
+     //Robot.cringe;
+    // set point = feet
 
-    double sensorPosition = (Robot.lift.lift1.getEncoder().getPosition()) * -1;
+    
 
-    double error = setPoint - sensorPosition;
 
-    double outputSpeed = kP * error;
+   double sensorPosition = (shooter.getHoodEncoder()) * -1;
 
-    Robot.lift.extend(-outputSpeed);
+   double error = setPoint-sensorPosition;
+
+   double outputSpeed = kP * error;
+
+   shooter.hood.set(-outputSpeed);
+
+
 
   }
-
-
 
   // Called once the command ends or is interrupted.
   @Override

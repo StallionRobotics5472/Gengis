@@ -6,46 +6,42 @@ package frc.robot.Commands.LiftCommands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
-import frc.robot.Subsystems.LiftSubsystem;
+import frc.robot.Subsystems.ShooterSubsystem;
 
-public class PIDLiftExtendCommand extends CommandBase {
-  /** Creates a new LiftExtendCommand. */
-  private LiftSubsystem lift;
-  private double kP;
+public class LidarCommand extends CommandBase {
+  /** Creates a new LidarCommand. */
+  private ShooterSubsystem shooter;
 
-  public PIDLiftExtendCommand() {
+  public LidarCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
+    
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    lift = Robot.lift;
-    kP = 0.09;
+    
   }
+
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-
-    double setPoint = 23;
-
-    double sensorPosition = (Robot.lift.lift1.getEncoder().getPosition()) * -1;
-
-    double error = setPoint - sensorPosition;
-
-    double outputSpeed = kP * error;
-
-    Robot.lift.extend(-outputSpeed);
-
+    if(Robot.lidarSubsystem.getDistance()<= 0)
+      shooter.getHoodEncoder();//add or subtract to whatever hood encoder is
+    else if(Robot.lidarSubsystem.getDistance()<=0)
+      shooter.getHoodEncoder();//add or subtract to whatever hood encoder is
+    else if(Robot.lidarSubsystem.getDistance() <= 0)
+      shooter.getHoodEncoder();//add or subtract to whatever hood encoder is
+    else if(Robot.lidarSubsystem.getDistance() <= 0)
+      shooter.getHoodEncoder();//add or subtract to whatever hood encoder is
+    else {
+    }
   }
-
-
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
-  }
+  public void end(boolean interrupted) {}
 
   // Returns true when the command should end.
   @Override

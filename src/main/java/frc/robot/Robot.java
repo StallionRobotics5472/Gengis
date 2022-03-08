@@ -11,6 +11,7 @@ import frc.robot.Commands.DriveCommands.DriveCommand;
 import frc.robot.Commands.ShooterCommands.ShootCommand;
 import frc.robot.Commands.DriveCommands.StopTurretAimCommand;
 import frc.robot.Commands.DriveCommands.TurretAimCommand;
+import frc.robot.Commands.LiftCommands.EnconderHoodDeal;
 import frc.robot.Subsystems.DriveSubsystem;
 import frc.robot.Subsystems.LidarSubsystem;
 import frc.robot.Subsystems.LiftSubsystem;
@@ -25,6 +26,8 @@ public class Robot extends TimedRobot {
   public static LiftSubsystem lift;
   public static LidarSubsystem lidarSubsystem;
   public SendableChooser autoChooser;
+  public static double cringe;
+  public static EnconderHoodDeal encoderHood;
   // public static Cameras cameras = new Cameras();
 
   // public static Drivetrain drive;
@@ -38,6 +41,7 @@ public class Robot extends TimedRobot {
     shooter = new ShooterSubsystem();
     lift = new LiftSubsystem();
     lidarSubsystem = new LidarSubsystem();
+    //encoderHood = new EnconderHoodDeal();
     autoChooser = new SendableChooser<CommandGroupBase>();
     shooter.hood.getEncoder().setPosition(0);
     lift.lift1.getEncoder().setPosition(0);
@@ -81,7 +85,9 @@ public class Robot extends TimedRobot {
     DriveCommand drive1 = new DriveCommand();
     drive1.schedule();
 
-    //shooter.rotate0();
+    //EnconderHoodDeal encoderHood = new EnconderHoodDeal();
+
+    // shooter.rotate0();
 
     // shooter.rotate(0.5);
     // TurretAimCommand drive2 = new TurretAimCommand();
@@ -115,30 +121,15 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("lift3_Encoder ProcessVariable", lift.lift3_Encoder.getPosition());
     SmartDashboard.putNumber("lift4_Encoder ProcessVariable", lift.lift4_Encoder.getPosition());
     SmartDashboard.putNumber("Hood Position", shooter.hoodEncoder.getPosition());
-    // shooter.intake();
+    SmartDashboard.putNumber("ShooterVelocity1", shooter.getShooterVelocity1());
+    SmartDashboard.putNumber("ShooterVelocity2", shooter.getShooterVelocity2());
+    SmartDashboard.putNumber("Lidar Value", lidarSubsystem.getDistance());
 
-    // DriveCommand drive1 = new DriveCommand();
-    // drive1.execute();
+    SmartDashboard.putNumber("Shooter Hood Position", shooter.hoodEncoder.getPosition());
 
-    // prob wrong
+    cringe = SmartDashboard.getNumber("hood position set", 0);
 
-    // TurretAimCommand drive2 = new TurretAimCommand();
-    // drive2.execute();
 
-    // StopTurretAimCommand drive3 = new StopTurretAimCommand();
-    // drive3.execute();
-
-    // IntakeCommand intake = new IntakeCommand();
-    // intake.execute();
-
-    // DumpCommand dump = new DumpCommand();
-    // dump.execute();
-    // TarmacCommand tarmac = new TarmacCommand();
-    // tarmac.execute();
-    // ShootCommand shoot = new ShootCommand();
-    // shoot.execute();
-    // StopShootCommand noShoot = new StopShootCommand();
-    // noShoot.execute();
 
   }
 
