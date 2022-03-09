@@ -110,6 +110,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
 
+  
     SmartDashboard.putNumber("hoodEncoder", shooter.getHoodEncoder());
     SmartDashboard.putNumber("Turret Encoder Value", Robot.shooter.hood.getEncoder().getPosition());
     SmartDashboard.putNumber("LIDAR - in robot class ", Robot.lidarSubsystem.getDistance());
@@ -123,12 +124,10 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Hood Position", shooter.hoodEncoder.getPosition());
     SmartDashboard.putNumber("ShooterVelocity1", shooter.getShooterVelocity1());
     SmartDashboard.putNumber("ShooterVelocity2", shooter.getShooterVelocity2());
-    SmartDashboard.putNumber("Lidar Value", lidarSubsystem.getDistance());
 
     SmartDashboard.putNumber("Shooter Hood Position", shooter.hoodEncoder.getPosition());
 
     cringe = SmartDashboard.getNumber("hood position set", 0);
-
 
 
   }

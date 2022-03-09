@@ -23,6 +23,7 @@ public class DriveSubsystem extends SubsystemBase {
 
   public AHRS navx = new AHRS(SPI.Port.kMXP);
 
+
   public double getHeading() {
 		return -navx.getRotation2d().getDegrees();
 	}
@@ -71,10 +72,12 @@ public class DriveSubsystem extends SubsystemBase {
     rightFollower2.follow(rightMaster);
     leftFollower2.follow(leftMaster);
     
+    
     SmartDashboard.putNumber("rightMaster_Encoder ProcessVariable", rightMaster_Encoder.getPosition());
     SmartDashboard.putNumber("leftMaster_Encoder ProcessVariable", leftMaster_Encoder.getPosition());
 
   }
+  
 
   public void rotate(double speed) {
     leftMaster.set(-speed * 0.15);

@@ -21,7 +21,8 @@ public class AimCommand extends CommandBase {
   ShootCommand shootcmd = new ShootCommand();
   boolean isFinished = false;
   Limelight limelight = new Limelight();
-  double turn = limelight.getHorizontalAngle()*-0.01;
+  double turn = limelight.getVerticalAngle()*-0.01;
+  boolean isLinedUp;
 
   public AimCommand() {
     // Use addRequirements() here to declare subsystem dependencies
@@ -35,18 +36,18 @@ public class AimCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute(){
-    if(limelight.getHorizontalAngle() == 0){
+    if(limelight.getVerticalAngle() < 1e-4){
       isFinished = true;
     }
     else{
 
-      if (Math.abs(limelight.getHorizontalAngle()) < 5)
+      if (Math.abs(limelight.getVerticalAngle()) < 5)
         turn*=3;
-      else   if(Math.abs(limelight.getHorizontalAngle()) < 4)
+      else   if(Math.abs(limelight.getVerticalAngle()) < 4)
         turn*=4;
-      else   if(Math.abs(limelight.getHorizontalAngle()) < 2.5)
+      else   if(Math.abs(limelight.getVerticalAngle()) < 2.5)
         turn*=5;
-      else   if(Math.abs(limelight.getHorizontalAngle()) < 1)
+      else   if(Math.abs(limelight.getVerticalAngle()) < 1)
         turn*=6;
       else{
         turn*=2;

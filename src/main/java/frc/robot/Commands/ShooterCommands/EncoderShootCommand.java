@@ -9,7 +9,7 @@ import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.Subsystems.ShooterSubsystem;
 
-public class ShootCommand extends CommandBase {
+public class EncoderShootCommand extends CommandBase {
   /**
    * Creates a new TurretShootCommand.
    */
@@ -25,9 +25,10 @@ public class ShootCommand extends CommandBase {
    private double thirtydegrees;
    private double firstTerm;
    private double inverseSecondTerm;
+   private double kP;
 
   private ShooterSubsystem shooter;
-  public ShootCommand() {
+  public EncoderShootCommand() {
 
     
     //addRequirements(Robot.turret);
@@ -40,7 +41,7 @@ public class ShootCommand extends CommandBase {
   public void initialize() {
     //turret.shoot(Constants.TURRET_SPEED);
     shooter = Robot.shooter;
-   
+   kP = 0.25;
     //turret.turret.setIdleMode(IdleMode.kCoast);
   }
 
@@ -77,7 +78,7 @@ public class ShootCommand extends CommandBase {
 
 
     //shooter.mover(0.36);
-    shooter.shoot(-.36);
+   // shooter.shoot(-.36);
     //missing hood command
   }
 

@@ -35,6 +35,7 @@ public class ShooterSubsystem extends SubsystemBase {
 	public CANSparkMax back_belt;
 	public RelativeEncoder hoodEncoder;
 	public RelativeEncoder wheelEncoder;
+	private double kP;
 	public MotorControllerGroup flywheel;
 
 	public ShooterSubsystem() {
@@ -56,6 +57,8 @@ public class ShooterSubsystem extends SubsystemBase {
 		transport1.setInverted(true);
 		transport2.setInverted(false);
 		// spin2.follow(spin);
+
+		kP = .25;
 
 		flyWheel1.setIdleMode(IdleMode.kCoast);
 		flyWheel2.setIdleMode(IdleMode.kCoast);
@@ -95,4 +98,17 @@ public class ShooterSubsystem extends SubsystemBase {
 	public double getShooterVelocity2(){
 		return flyWheel2.getEncoder().getVelocity();
 	}
+	public void setWheelSpeed() {
+		double targetVelocity = 360;
+    //set point = feet
+            double currentVelocity = (flyWheel1.getEncoder().getVelocity());
+    
+            double error = (targetVelocity - currentVelocity)/targetVelocity;
+
+            double outputSpeed = kP * error;
+            
+    
+            shoot(-outputSpeed);
+	}
+	
 }
