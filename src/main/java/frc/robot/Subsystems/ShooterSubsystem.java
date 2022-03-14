@@ -3,6 +3,7 @@ package frc.robot.Subsystems;
 import java.util.HashMap;
 
 import frc.robot.Constants;
+import frc.robot.Robot;
 
 import com.ctre.phoenix.led.CANdle;
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -37,6 +38,8 @@ public class ShooterSubsystem extends SubsystemBase {
 	public RelativeEncoder wheelEncoder;
 	private double kP;
 	public MotorControllerGroup flywheel;
+	public LidarSubsystem lidar;
+	public double power;
 
 	public ShooterSubsystem() {
 
@@ -56,6 +59,7 @@ public class ShooterSubsystem extends SubsystemBase {
 		// spin2 = new TalonSRX(22);
 		transport1.setInverted(true);
 		transport2.setInverted(false);
+		lidar = Robot.lidarSubsystem;
 		// spin2.follow(spin);
 
 		kP = .25;
@@ -99,16 +103,8 @@ public class ShooterSubsystem extends SubsystemBase {
 		return flyWheel2.getEncoder().getVelocity();
 	}
 	public void setWheelSpeed() {
-		double targetVelocity = 360;
-    //set point = feet
-            double currentVelocity = (flyWheel1.getEncoder().getVelocity());
-    
-            double error = (targetVelocity - currentVelocity)/targetVelocity;
 
-            double outputSpeed = kP * error;
-            
-    
-            shoot(-outputSpeed);
+
 	}
 	
 }

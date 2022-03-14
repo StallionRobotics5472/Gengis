@@ -28,6 +28,7 @@ public class Robot extends TimedRobot {
   public SendableChooser autoChooser;
   public static double cringe;
   public static EnconderHoodDeal encoderHood;
+  public static ShootCommand shoot;
   // public static Cameras cameras = new Cameras();
 
   // public static Drivetrain drive;
@@ -41,14 +42,20 @@ public class Robot extends TimedRobot {
     shooter = new ShooterSubsystem();
     lift = new LiftSubsystem();
     lidarSubsystem = new LidarSubsystem();
-    //encoderHood = new EnconderHoodDeal();
+    // encoderHood = new EnconderHoodDeal();
     autoChooser = new SendableChooser<CommandGroupBase>();
     shooter.hood.getEncoder().setPosition(0);
+    drive.rightMaster.getEncoder().setPosition(0);
+    drive.leftMaster.getEncoder().setPosition(0);
     lift.lift1.getEncoder().setPosition(0);
     lift.lift2.getEncoder().setPosition(0);
     lift.lift3.getEncoder().setPosition(0);
     lift.lift4.getEncoder().setPosition(0);
+    shoot = new ShootCommand();
     CameraServer.startAutomaticCapture();
+
+  
+
     drive.navx.reset();
   }
 
@@ -85,35 +92,35 @@ public class Robot extends TimedRobot {
     DriveCommand drive1 = new DriveCommand();
     drive1.schedule();
 
-    //EnconderHoodDeal encoderHood = new EnconderHoodDeal();
+    // EnconderHoodDeal encoderHood = new EnconderHoodDeal();
 
-    // shooter.rotate0();
+      // shooter.rotate0();
 
-    // shooter.rotate(0.5);
-    // TurretAimCommand drive2 = new TurretAimCommand();
-    // drive2.schedule();
-    // StopTurretAimCommand drive3 = new StopTurretAimCommand();
-    // drive3.schedule();
+      // shooter.rotate(0.5);
+      // TurretAimCommand drive2 = new TurretAimCommand();
+      // drive2.schedule();
+      // StopTurretAimCommand drive3 = new StopTurretAimCommand();
+      // drive3.schedule();
 
-    // IntakeCommand intake = new IntakeCommand();
-    // intake.schedule();
+      // IntakeCommand intake = new IntakeCommand();
+      // intake.schedule();
 
-    // DumpCommand dump = new DumpCommand();
-    // dump.schedule();
-    // TarmacCommand tarmac = new TarmacCommand();
-    // tarmac.schedule();
-    // ShootCommand shoot = new ShootCommand();
-    // shoot.schedule();
+      // DumpCommand dump = new DumpCommand();
+      // dump.schedule();
+      // TarmacCommand tarmac = new TarmacCommand();
+      // tarmac.schedule();
+      // ShootCommand shoot = new ShootCommand();
+      // shoot.schedule();
 
   }
 
   @Override
   public void teleopPeriodic() {
 
-  
     SmartDashboard.putNumber("hoodEncoder", shooter.getHoodEncoder());
     SmartDashboard.putNumber("Turret Encoder Value", Robot.shooter.hood.getEncoder().getPosition());
     SmartDashboard.putNumber("LIDAR - in robot class ", Robot.lidarSubsystem.getDistance());
+
     SmartDashboard.putString("Gyro Heading", Robot.drive.navx.getRotation2d().toString());
     SmartDashboard.putNumber("Motor Velocity", Robot.shooter.flyWheel1.getBusVoltage());
     SmartDashboard.putNumber("Motor Velocity 2", Robot.shooter.flyWheel2.getBusVoltage());
@@ -124,11 +131,23 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Hood Position", shooter.hoodEncoder.getPosition());
     SmartDashboard.putNumber("ShooterVelocity1", shooter.getShooterVelocity1());
     SmartDashboard.putNumber("ShooterVelocity2", shooter.getShooterVelocity2());
+    SmartDashboard.putNumber("rightMaster_Encoder ProcessVariable", drive.rightMaster_Encoder.getPosition());
+    SmartDashboard.putNumber("leftMaster_Encoder ProcessVariable", drive.leftMaster_Encoder.getPosition());
+    SmartDashboard.putNumber("POWER", shooter.flyWheel1.getAppliedOutput());
 
     SmartDashboard.putNumber("Shooter Hood Position", shooter.hoodEncoder.getPosition());
 
-    cringe = SmartDashboard.getNumber("hood position set", 0);
+    boolean lidarBool = false;
+    double lidarValue = Robot.lidarSubsystem.getDistance();
+    // double lidarValue = 35;
+    if (lidarValue < 90 && lidarValue > 77.9) {
+      lidarBool = true;
+    } else {
+      lidarBool = false;
+    }
+    SmartDashboard.putBoolean("Working Shooting Range", lidarBool);
 
+    // cringe = SmartDashboard.getNumber("hood position set", 0);
 
   }
 

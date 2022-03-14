@@ -27,17 +27,7 @@ public class HoodCommand25 extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-
-    double setPoint = 0;
-    //set point = feet
-            double sensorPosition = (Robot.shooter.hood.getEncoder().getPosition())*-1;
-    
-            double error = setPoint - sensorPosition;
-
-            double outputSpeed = kP * error;
-            
-    
-            Robot.shooter.hood.set(-outputSpeed);
+shooter.hood.set(0.3);
   }
 
   // Called once the command ends or is interrupted.

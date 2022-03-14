@@ -24,7 +24,7 @@ public class LiftFlipCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    lift.flip(-0.09);
+    lift.flip(-0.11);
   }
 
   // Called once the command ends or is interrupted.

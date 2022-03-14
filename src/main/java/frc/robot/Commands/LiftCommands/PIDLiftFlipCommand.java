@@ -27,7 +27,7 @@ public class PIDLiftFlipCommand extends CommandBase {
   @Override
   public void execute() {
    // lift.flip(-0.09);
-   double setPoint = 3.25;
+   double setPoint = 3.7;
    double sensorPosition = (Robot.lift.lift3.getEncoder().getPosition())*-1;
     
             double error = setPoint - sensorPosition;

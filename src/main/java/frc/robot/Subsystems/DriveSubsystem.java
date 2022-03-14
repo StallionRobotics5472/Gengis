@@ -16,13 +16,16 @@ import frc.robot.Robot;
 import edu.wpi.first.wpilibj.motorcontrol.PWMVictorSPX;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.drive.RobotDriveBase;
 
 /** Add your docs here. */
 public class DriveSubsystem extends SubsystemBase {
 
   public AHRS navx = new AHRS(SPI.Port.kMXP);
-
+  private RobotDriveBase myRobot;
+  PIDController turnController;
 
   public double getHeading() {
 		return -navx.getRotation2d().getDegrees();
@@ -61,8 +64,8 @@ public class DriveSubsystem extends SubsystemBase {
 
   public DriveSubsystem() {
 
-    // rightFollower.follow(rightMaster);
-    // leftFollower.follow(leftMaster);
+    rightFollower.follow(rightMaster);
+    leftFollower.follow(leftMaster);
     // drive = new DifferentialDrive(leftMaster, rightMaster);
     leftMaster.setInverted(true);
     leftFollower.setInverted(true);
@@ -73,8 +76,7 @@ public class DriveSubsystem extends SubsystemBase {
     leftFollower2.follow(leftMaster);
     
     
-    SmartDashboard.putNumber("rightMaster_Encoder ProcessVariable", rightMaster_Encoder.getPosition());
-    SmartDashboard.putNumber("leftMaster_Encoder ProcessVariable", leftMaster_Encoder.getPosition());
+   
 
   }
   
@@ -98,4 +100,5 @@ public class DriveSubsystem extends SubsystemBase {
   public void tank(double left, double right) {
     // drive.tankDrive(left, right);
   }
+
 }

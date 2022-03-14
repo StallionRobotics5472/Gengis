@@ -34,8 +34,10 @@ public class DriveCommand extends CommandBase {
     if(Math.abs(y)<0.1)
       y=0;
 
-    Robot.drive.leftMaster.set(y*.45 - x*.2);
-    Robot.drive.rightMaster.set(y*.45 + x*.2);
+    // Robot.drive.leftMaster.set(y*.45 - x*.2);
+    // Robot.drive.rightMaster.set(y*.45 + x*.2);
+    Robot.drive.leftMaster.set(y*0.7 - x*0.3);
+    Robot.drive.rightMaster.set(y*0.7 + x*0.3);
   }
 
   // Make this return true when this Command no longer needs to run execute()

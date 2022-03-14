@@ -42,7 +42,7 @@ public class TurretAimCommand extends CommandBase {
         SmartDashboard.putBoolean("LimelightAim", false);
         finished = false;
        // turret = Robot.turret
-       // lidar = Robot.lidarSubsystem;
+        lidar = Robot.lidarSubsystem;
        drive = Robot.drive;
        shooter = Robot.shooter;
         limelight = Robot.limelight;
@@ -89,14 +89,14 @@ public class TurretAimCommand extends CommandBase {
         }
         drive.rotate(turn);
 
-        if(isLinedUp = true) {
+      /*  if(isLinedUp = true) {
             
             lidar.setHoodAngle();
-            shooter.setWheelSpeed();
+            //shooter.setWheelSpeed();
         }
         SmartDashboard.putBoolean("LinedUp", isLinedUp);
 
-        
+        */
 
         // if(turret.getTurretEncoder()>0.5*Constants.TURRET_RATIO && turn > 0 || turret.getTurretEncoder() < -0.5*Constants.TURRET_RATIO && turn < 0)
         //     turret.rotate(0);

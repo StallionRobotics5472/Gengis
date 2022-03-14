@@ -55,9 +55,10 @@ public class Constants {
       
         
 		    
-        public static final double MAX_DISTANCE = 600;
+        public static final double MAX_DISTANCE = 200;
         public static final double MIN_DISTANCE = 100;
-        public static final double HOOD_ENCODER = 1.5;
+        public static final double HOOD_ENCODER = -3;
+        public static final double LIDAR_OFFSET = 15;
         
 
 

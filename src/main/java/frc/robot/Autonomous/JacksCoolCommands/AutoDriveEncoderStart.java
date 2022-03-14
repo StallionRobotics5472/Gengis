@@ -11,7 +11,7 @@ public class AutoDriveEncoderStart extends CommandBase {
 
     private boolean completed;
 
-    double kP = 1e-4;
+    double kP = 0.018;
 
     public void initialize() {
 
@@ -19,11 +19,11 @@ public class AutoDriveEncoderStart extends CommandBase {
 
     public void execute() {
 //increased by 42.5 inch 
-        double setPoint = (42.5/12);
+        double setPoint = 23;
 //set point = feet
         //double sensorPosition = Robot.drive.rightMaster.getEncoder().getPosition();
-        double sensorRight = ((Robot.drive.rightMaster.getEncoder().getPosition())/5.854840088);
-        double sensorLeft = ((Robot.drive.leftMaster.getEncoder().getPosition())/6.052478409);
+        double sensorRight = Robot.drive.rightMaster.getEncoder().getPosition()*-0.98;
+        double sensorLeft = Robot.drive.leftMaster.getEncoder().getPosition()*-1;
 
         //double error = setPoint - sensorPosition;
         double errorRight = setPoint - sensorRight;
@@ -31,8 +31,8 @@ public class AutoDriveEncoderStart extends CommandBase {
         //double outputSpeed = kP * error;
         double outputSpeedRight = kP * errorRight;
         double outputSpeedLeft = kP * errorLeft;
-
-        Robot.drive.rightMaster.set(outputSpeedRight);
+        Robot.shooter.spin(0.7);
+        Robot.drive.rightMaster.set(-outputSpeedRight);
         Robot.drive.leftMaster.set(-outputSpeedLeft);
 
     }

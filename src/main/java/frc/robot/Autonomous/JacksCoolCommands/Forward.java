@@ -23,7 +23,11 @@ public class Forward extends CommandBase {
 		this.givenAngle = false;
 		this.distance = distance;
 	}
-
+  public Forward(){
+    controller.setIntegratorRange(-180f, 180f);
+    controller.setTolerance(2f);
+    controller.enableContinuousInput(0, 1);
+  }
   public Forward(double distance, double angle) {
 		this.givenAngle = true;
 		this.distance = distance;
@@ -35,8 +39,8 @@ public class Forward extends CommandBase {
   public void initialize() {
 
     drive = Robot.drive;
-    drive.leftMaster.getEncoder().setPosition(0);
-    drive.rightMaster.getEncoder().setPosition(0);
+    // drive.leftMaster.getEncoder().setPosition(0);
+    // drive.rightMaster.getEncoder().setPosition(0);
 
 
 
@@ -48,8 +52,8 @@ public class Forward extends CommandBase {
   public void execute() {
 
     double error = angle - drive.getHeading();
-		double output = (drive.getLeftPercent() + drive.getRightPercent()) / 2.0;
-		drive.drive(output - 0.1 * error, output + 0.1 * error);
+		//double output = (drive.getLeftPercent() + drive.getRightPercent()) / 2.0;
+	//	drive.drive(output - 0.1 * error, output + 0.1 * error);
   }
 
   // Called once the command ends or is interrupted.

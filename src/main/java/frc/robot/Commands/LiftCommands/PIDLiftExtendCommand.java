@@ -28,7 +28,7 @@ public class PIDLiftExtendCommand extends CommandBase {
   @Override
   public void execute() {
 
-    double setPoint = 23;
+    double setPoint = 23.6;
 
     double sensorPosition = (Robot.lift.lift1.getEncoder().getPosition()) * -1;
 

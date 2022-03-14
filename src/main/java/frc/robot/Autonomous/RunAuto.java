@@ -9,6 +9,7 @@ package frc.robot.Autonomous;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
+import frc.robot.Autonomous.JacksCoolCommands.AutoDriveEncoderStart;
 import frc.robot.Commands.DriveCommands.TurretAimCommand;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
@@ -23,9 +24,10 @@ public class RunAuto extends SequentialCommandGroup {
     
   //  super(new AutoClimb(), new AutoDrive(), new AutoIntake(), new WaitCommand(1), new Auto180(), new WaitCommand(1), new AutoShoot2(), new AutoTransport2() );
    // super(new ClimbAuto(), new ClimbAuto2(), new ClimbAuto3()); 
-  //  super (new AutoClimb(), new AutoShoot(), new AutoTransport(),new WaitCommand(2), new AutoDriveBack());
+    super (new AutoClimb(), new AutoShoot(), new AutoTransport(),new WaitCommand(2), new AutoDriveBack());
   //super(new Auto180());
   //super (new AutoDriveEncoder(), new Foward());
+ // super(new AutoClimb(), new AutoDriveEncoderStart());
  // super(new PIDLiftExtendCommand());
   }
 }

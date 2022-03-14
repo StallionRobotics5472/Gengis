@@ -22,12 +22,14 @@ public class AutoClimb extends CommandBase {
         
 
 
-        if(Timer.getFPGATimestamp() - starttime <= 0.75){
-            Robot.lift.grab(0.25);
+        if(Timer.getFPGATimestamp() - starttime <= 0.5){
+            Robot.lift.grab(0.3);
+            Robot.lift.extend(0.08);
            // Robot.drive.leftFollower.set(ControlMode.PercentOutput, 0.5);
             //Robot.drive.rightFollower.set(ControlMode.PercentOutput,-0.5);
         }else {
             Robot.lift.grab(0);
+            Robot.lift.extend(0);
            // Robot.drive.leftFollower.set(ControlMode.PercentOutput, 0);
            // Robot.drive.rightFollower.set(ControlMode.PercentOutput, 0);
             completed = true;

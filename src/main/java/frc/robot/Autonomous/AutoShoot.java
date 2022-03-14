@@ -26,7 +26,7 @@ public class AutoShoot extends CommandBase {
             // Two Ball
             //Robot.shooter.shoot(-0.55);
             // One Ball
-            Robot.shooter.shoot(-0.36);
+            Robot.shooter.shoot(-0.355);
         }else {
             Robot.shooter.shoot(0);
            // Robot.drive.leftFollower.set(ControlMode.PercentOutput, 0);

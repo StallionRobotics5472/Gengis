@@ -35,7 +35,7 @@ public class LidarSubsystem extends SubsystemBase {
     /* getPeriod returns time in seconds. The hardware resolution is microseconds.
      * The LIDAR-Lite unit sends a high signal for 10 microseconds per cm of distance.
      */
-    cm = (DistanceMaker.getPeriod() * 1000000.0 / 10.0);// + Constants.LIDAR_OFFSET;
+    cm = (DistanceMaker.getPeriod() * 1000000.0 / 10.0) - Constants.LIDAR_OFFSET;// + Constants.LIDAR_OFFSET;
     //SmartDashboard.putNumber("Distance Inches", cm / 2.54);
     return cm;
   }
@@ -63,12 +63,17 @@ public class LidarSubsystem extends SubsystemBase {
 
   }
 
+  public double calcHoodAngle2() {
+    //  return (getDistance()-Constants.MIN_DISTANCE)/(Constants.MAX_DISTANCE - Constants.MIN_DISTANCE) * 10;
+    return (((10-0)/(200-100))*(DistanceMaker.getDistance()))-10;
+  
+    }
   public boolean returnsTrue(){
     return true;
   }
 
   public void setHoodAngle()  {
-    double setPoint = (calcHoodAngle()*Constants.HOOD_ENCODER);
+    double setPoint = calcHoodAngle2();
     //set point = feet
             double sensorPosition = (Robot.shooter.hoodEncoder.getPosition())*-1;
     
@@ -77,10 +82,9 @@ public class LidarSubsystem extends SubsystemBase {
             double outputSpeed = kP * error;
             
     
-            shooter.hood.set(outputSpeed);
+            shooter.hood.set(outputSpeed*0.2);
 
     }
-
     
 
   @Override

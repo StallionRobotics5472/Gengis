@@ -85,11 +85,11 @@ public class Controls {
         lift5 = new JoystickButton(playerOne, Constants.START_BUTTON);
         lift6 = new JoystickButton(playerOne, Constants.BACK_BUTTON);
         // dump = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
-        // tarmac = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
-        hood2 = new JoystickButton(playerTwo, Constants.BUTTON_B);
-        hood1 = new JoystickButton(playerTwo, Constants.BUTTON_X);
+        //tarmac = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
+        hood1 = new JoystickButton(playerTwo, Constants.BUTTON_B);
+        hood2 = new JoystickButton(playerTwo, Constants.BUTTON_X);
         reverse = new JoystickButton(playerOne, Constants.BACK_RIGHT_BUTTON);
-        hoodEncoder = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
+        max = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
         //joe = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
         //hood = new JoystickButton(playerTwo, Constants.BUTTON_B);
         configureButtonBindings();
@@ -104,9 +104,9 @@ public class Controls {
         intake.whenReleased(new StopIntakeCommand());
         backbelt.whileHeld(new BackBeltCommand());
         backbelt.whenReleased(new StopBackBeltCommand());
-        lift1.whileHeld(new PIDLiftExtendCommand());
+        lift1.whileHeld(new LiftExtendCommand());
         lift1.whenReleased(new StopLiftExtendCommand());
-        lift2.whileHeld(new PIDLiftFlipCommand());
+        lift2.whileHeld(new LiftFlipCommand());
         lift2.whenReleased(new StopLiftFlipCommand());
         lift3.whileHeld(new BackLiftExtendCommand());
         lift3.whenReleased(new StopLiftExtendCommand());
@@ -116,16 +116,17 @@ public class Controls {
         lift5.whenReleased(new StopLiftGrabCommand());
         lift6.whenReleased(new StopLiftGrabCommand());
         lift6.whileHeld(new BackLiftGrabCommand());
-        hoodEncoder.whileHeld(new EnconderHoodDeal(25));
-        //joe.whileHeld(new EnconderHoodDeal(10));
-        hoodEncoder.whenReleased(new StopEncoderHoodCommand());
+
+        // hoodEncoder.whileHeld(new EnconderHoodDeal(25));
+        // //joe.whileHeld(new EnconderHoodDeal(10));
+        // hoodEncoder.whenReleased(new StopEncoderHoodCommand());
         //joe.whenReleased(new StopEncoderHoodCommand());
 
         
          tarmac.whileHeld(new TarmacCommand());
          tarmac.whenReleased(new StopShootCommand());
-         //max.whileHeld(new MaxCommand());
-         //max.whenReleased(new StopShootCommand());
+         max.whileHeld(new MaxCommand());
+         max.whenReleased(new StopShootCommand());
          //hood.whenPressed(new HoodCommand35());
          //hood.whenReleased(new StopHoodCommand());
         hood2.whileHeld(new HoodCommand35());
@@ -134,7 +135,7 @@ public class Controls {
         hood1.whenReleased(new StopHoodCommand());
         hood2.whenReleased(new StopHoodCommand());
         reverse.whileHeld(new ReverseIntake());
-        reverse.whileHeld(new StopIntakeCommand());
+        reverse.whenReleased(new StopIntakeCommand());
 
         
     }   
