@@ -11,13 +11,12 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.VictorSPXSimCollection;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-import com.revrobotics.CANPIDController;
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.ControlType;
+import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.*;
 
+import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.simulation.FlywheelSim;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -41,14 +40,20 @@ public class ShooterSubsystem extends SubsystemBase {
 	public LidarSubsystem lidar;
 	public double power;
 
+	public SparkMaxPIDController m_pidController;
+	public SparkMaxPIDController m_pidController2; 
+
 	public ShooterSubsystem() {
 
+
+		
 		// public Talon motor = new Talon(1);
 		flyWheel1 = new CANSparkMax(Constants.FLY_WHEEL_1, MotorType.kBrushless);
 		flyWheel1.setInverted(true);
 
 		flyWheel2 = new CANSparkMax(Constants.FLY_WHEEL_2, MotorType.kBrushless);
 		flyWheel2.setInverted(false);
+	
 		flywheel = new MotorControllerGroup(flyWheel1,flyWheel2);
 		hood = new CANSparkMax(Constants.HOOD, MotorType.kBrushless);
 		hood.setIdleMode(IdleMode.kBrake);
@@ -67,6 +72,10 @@ public class ShooterSubsystem extends SubsystemBase {
 		flyWheel1.setIdleMode(IdleMode.kCoast);
 		flyWheel2.setIdleMode(IdleMode.kCoast);
 
+	
+		m_pidController =  flyWheel1.getPIDController();
+		m_pidController2 = flyWheel2.getPIDController();
+
 		back_belt = new CANSparkMax(Constants.BACK_BELT, MotorType.kBrushless);
 
 	}
@@ -78,6 +87,11 @@ public class ShooterSubsystem extends SubsystemBase {
 	public void mover(double speed) {
 		transport1.set(speed);
 		transport2.set(speed);
+	}
+
+	public void setVelocity(double velocity){
+		m_pidController.setReference(velocity, ControlType.kVelocity);
+		m_pidController2.setReference(velocity, ControlType.kVelocity);
 	}
 
 	public void shoot(double speed) {

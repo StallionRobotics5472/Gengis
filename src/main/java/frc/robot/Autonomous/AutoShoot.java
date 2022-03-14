@@ -22,11 +22,11 @@ public class AutoShoot extends CommandBase {
         
 
 
-        if(Timer.getFPGATimestamp() - starttime <= 3){
+        if(Timer.getFPGATimestamp() - starttime <= 0.85){
             // Two Ball
             //Robot.shooter.shoot(-0.55);
             // One Ball
-            Robot.shooter.shoot(-0.355);
+            Robot.shooter.shoot(-1);
         }else {
             Robot.shooter.shoot(0);
            // Robot.drive.leftFollower.set(ControlMode.PercentOutput, 0);

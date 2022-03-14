@@ -20,6 +20,7 @@ import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.drive.RobotDriveBase;
 
+
 /** Add your docs here. */
 public class DriveSubsystem extends SubsystemBase {
 
@@ -62,6 +63,7 @@ public class DriveSubsystem extends SubsystemBase {
   public RelativeEncoder leftFollower_Encoder = leftMaster.getEncoder();
   public RelativeEncoder leftFollower2_Encoder = leftMaster.getEncoder();
 
+  
   public DriveSubsystem() {
 
     rightFollower.follow(rightMaster);
@@ -78,7 +80,11 @@ public class DriveSubsystem extends SubsystemBase {
     
    
 
+
   }
+  
+
+
   
 
   public void rotate(double speed) {
@@ -90,6 +96,12 @@ public class DriveSubsystem extends SubsystemBase {
   public void drive(double left, double right) {
 		this.leftMaster.set(left);
 		this.rightMaster.set(right);
+		
+	}
+
+  public void resetEncoder() {
+		this.leftMaster.getEncoder().setPosition(0);
+		this.rightMaster.getEncoder().setPosition(0);
 		
 	}
 

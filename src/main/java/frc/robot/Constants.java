@@ -26,7 +26,19 @@ public class Constants {
     public static final int ALTERNATE_JOYSTICK_X_AXIS = 4;
     public static final int ALTERNATE_JOYSTICK_Y_AXIS = 5;
         
-        
+    
+    public static final double rightMotorOffset = 1;
+    public static final double leftMotorOffset = 1;
+
+    public static final double kTurnP = 0.018;
+    public static final double kTurnI = 0;
+    public static final double kTurnD = 0;
+
+    public static final double kMaxTurnRateDegPerS = 100;
+    public static final double kMaxTurnAccelerationDegPerSSquared = 300;
+
+    public static final double kTurnToleranceDeg = 10;
+    public static final double kTurnRateToleranceDegPerS = 10; // degrees per second
        
        
        

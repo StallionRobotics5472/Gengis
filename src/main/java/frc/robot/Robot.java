@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandGroupBase;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Autonomous.RunAuto;
+import frc.robot.Autonomous.JacksCoolCommands.TwoBallAuto;
 import frc.robot.Commands.DriveCommands.DriveCommand;
 import frc.robot.Commands.ShooterCommands.ShootCommand;
 import frc.robot.Commands.DriveCommands.StopTurretAimCommand;
@@ -58,7 +59,7 @@ public class Robot extends TimedRobot {
 
     drive.navx.reset();
   }
-
+  
   @Override
   public void robotPeriodic() {
     CommandScheduler.getInstance().run();
@@ -76,6 +77,11 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousInit() {
+
+
+    drive.resetEncoder();
+    drive.navx.reset();
+    
 
     CommandGroupBase BallAuto = new RunAuto();
     BallAuto.schedule();
