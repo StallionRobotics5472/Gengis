@@ -77,8 +77,9 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousInit() {
-
-
+    drive.rightMaster.getEncoder().setPosition(0);
+    drive.leftMaster.getEncoder().setPosition(0);
+    shooter.hood.getEncoder().setPosition(0);
     drive.resetEncoder();
     drive.navx.reset();
     
@@ -142,16 +143,10 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("POWER", shooter.flyWheel1.getAppliedOutput());
 
     SmartDashboard.putNumber("Shooter Hood Position", shooter.hoodEncoder.getPosition());
+    SmartDashboard.putNumber("tx", limelight.getHorizontalAngle());
+    SmartDashboard.putNumber("ty", limelight.getVerticalAngle());
 
-    boolean lidarBool = false;
-    double lidarValue = Robot.lidarSubsystem.getDistance();
-    // double lidarValue = 35;
-    if (lidarValue < 90 && lidarValue > 77.9) {
-      lidarBool = true;
-    } else {
-      lidarBool = false;
-    }
-    SmartDashboard.putBoolean("Working Shooting Range", lidarBool);
+
 
     // cringe = SmartDashboard.getNumber("hood position set", 0);
 

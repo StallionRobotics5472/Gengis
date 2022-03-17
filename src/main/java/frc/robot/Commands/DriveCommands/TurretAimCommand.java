@@ -60,15 +60,14 @@ public class TurretAimCommand extends CommandBase {
     
             double verticalError = limelight.getVerticalAngle();
             SmartDashboard.putNumber("ty", limelight.getVerticalAngle());
-            turn = verticalError * -0.01;
+            turn = verticalError * -0.05;
         
         SmartDashboard.putNumber("Turret Rotation", turn);
         if (limelight.getTargetArea() <= 1e-4) {
             // || limelight.isFrozen()) {
             turn = 0;
-            isLinedUp = true;
-            
         }
+        
         else  {
             if(Math.abs(limelight.getVerticalAngle()) < 0.5){
                 SmartDashboard.putBoolean("LimelightAim", true);
@@ -85,7 +84,6 @@ public class TurretAimCommand extends CommandBase {
             else{
                 turn*=2;
             }
-            isLinedUp = false;
         }
         drive.rotate(turn);
 

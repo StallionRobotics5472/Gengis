@@ -43,8 +43,9 @@ public class RunAuto extends SequentialCommandGroup {
     // super(new AutoDriveEncoder(-35), new TurnToAngleProfiled(-(25), Robot.drive),
     // new AutoDriveEncoderIntake(-55));
 
-    super(new AutoClimb(), new TurnToAngleProfiled(20, Robot.drive), new AutoDriveEncoderIntake(-30), new AutoDriveEncoder(0), new TurnToAngleProfiled(195, Robot.drive), new AutoShoot(), new AutoTransport(), new AutoDriveEncoderReset(0), new TurnToAngleProfiled(108, Robot.drive), new AutoDriveEncoderReset(0), new AutoDriveEncoderIntake(-45), new TurnToAngleProfiled(-120, Robot.drive), new AutoDriveEncoderReset(0), new AutoDriveEncoder(-25), new AutoShoot2(), new AutoTransport());
-
+   // super(new AutoClimb(), new TurnToAngleProfiled(20, Robot.drive), new AutoDriveEncoderIntake(-30), new AutoDriveEncoder(0), new TurnToAngleProfiled(195, Robot.drive), new AutoShoot(), new AutoTransport(), new AutoDriveEncoderReset(0), new TurnToAngleProfiled(108, Robot.drive), new AutoDriveEncoderReset(0), new AutoDriveEncoderIntake(-42), new TurnToAngleProfiled(-120, Robot.drive), new AutoDriveEncoderReset(0), new AutoDriveEncoder(-25), new AutoShoot2(), new AutoTransport());
+    super(new AutoClimb(), new TurnToAngleProfiled(20, Robot.drive), new AutoDriveEncoderIntake(-25), new TurnToAngleProfiled(195, Robot.drive), new AutoShoot(), new AutoTransport(), new AutoDriveEncoderReset(0), new TurnToAngleProfiled(132, Robot.drive), new AutoDriveEncoderReset(0), new AutoDriveEncoderIntake(-48), new TurnToAngleProfiled(230, Robot.drive), new AutoShoot2(), new AutoTransport());
+    //super(new AutoClimb());
     // super(new TurnToAngleProfiled(20, Robot.drive));
     // super(new AutoClimb(), new AutoDriveEncoderStart());
     // super(new PIDLiftExtendCommand());

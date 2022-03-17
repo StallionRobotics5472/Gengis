@@ -10,6 +10,7 @@ import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
+import frc.robot.Limelight;
 import frc.robot.Robot;
 import frc.robot.Subsystems.LidarSubsystem;
 import frc.robot.Subsystems.ShooterSubsystem;
@@ -37,6 +38,7 @@ public class ShootCommand extends CommandBase {
   private double kP;
 
   private ShooterSubsystem shooter;
+  private Limelight limelight;
 
 
 
@@ -55,6 +57,7 @@ public class ShootCommand extends CommandBase {
    
     // turret.shoot(Constants.TURRET_SPEED);
     shooter = Robot.shooter;
+    limelight = Robot.limelight;
 
     // turret.turret.setIdleMode(IdleMode.kCoast);
   }
@@ -63,8 +66,28 @@ public class ShootCommand extends CommandBase {
   @Override
   public void execute() {
   
+ /*  if((shooter.flyWheel1.getEncoder().getVelocity()*-1) < 1950) {
 
-    shooter.shoot(-.38);;
+    shooter.shoot(-.6);
+   }
+   else if (((shooter.flyWheel1.getEncoder().getVelocity()*-1) > 1950.001) && (shooter.flyWheel1.getEncoder().getVelocity()*-1) < 2050){
+     shooter.shoot(power);
+   }
+ else {
+
+ }*/
+ 
+ if ((limelight.getHorizontalAngle() > -20) && (limelight.getHorizontalAngle() < -15)) {
+   power = -0.365;
+ }
+ else if ((limelight.getHorizontalAngle() > -15) && (limelight.getHorizontalAngle() < -10)){
+   power = -0.38;
+ }
+ else{
+   power = 0;
+ }
+ shooter.shoot(power);
+   // shooter.shoot(-.38);;
     
 
   }
