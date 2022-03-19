@@ -88,8 +88,8 @@ public class DriveSubsystem extends SubsystemBase {
   
 
   public void rotate(double speed) {
-    leftMaster.set(speed * 0.2);
-    rightMaster.set(-speed * 0.2);
+    leftMaster.set(speed * 0.15);
+    rightMaster.set(-speed * 0.15);
 
   }
 

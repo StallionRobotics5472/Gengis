@@ -25,7 +25,8 @@ public class BackBeltCommand extends CommandBase {
   @Override
   public void execute() {
     shooter.spinback(.50);
-    shooter.mover(0.30);
+    shooter.mover(0.50);
+    shooter.spin(0.3);
   }
 
   // Called once the command ends or is interrupted.

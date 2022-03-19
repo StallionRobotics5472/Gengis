@@ -26,7 +26,7 @@ public class Limelight {
 	private static final int MODE_DRIVER_CAMERA = 1;
 	
 	private static final String ACTIVE_PIPELINE = "pipeline";
-	private static final int WALL_TARGET_PIPELINE = 0;
+	private static final int WALL_TARGET_PIPELINE = 1;
 	
 	private static final String SNAPSHOT = "snapshot";
 	private static final int TAKE_SNAPSHOT = 1;

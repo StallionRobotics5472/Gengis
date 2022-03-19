@@ -56,7 +56,8 @@ public class MaxCommand extends CommandBase {
 
     
     
-    shooter.shoot(-0.65);
+   shooter.hood.getEncoder().setPosition(0);
+   //shooter.shoot(-0.43);
     //shooter.shoot(variable); Dont Know value
     //missing hood command
   }

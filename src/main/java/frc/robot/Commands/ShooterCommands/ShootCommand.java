@@ -1,5 +1,7 @@
 package frc.robot.Commands.ShooterCommands;
 
+import java.lang.annotation.Target;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.revrobotics.SparkMaxPIDController;
 import com.revrobotics.CANSparkMax.IdleMode;
@@ -34,8 +36,10 @@ public class ShootCommand extends CommandBase {
   private double firstTerm;
   private double inverseSecondTerm;
   private double power;
+  private double TargetVelocity;
   private LidarSubsystem lidar;
   private double kP;
+  
 
   private ShooterSubsystem shooter;
   private Limelight limelight;
@@ -66,28 +70,77 @@ public class ShootCommand extends CommandBase {
   @Override
   public void execute() {
   
- /*  if((shooter.flyWheel1.getEncoder().getVelocity()*-1) < 1950) {
-
-    shooter.shoot(-.6);
-   }
-   else if (((shooter.flyWheel1.getEncoder().getVelocity()*-1) > 1950.001) && (shooter.flyWheel1.getEncoder().getVelocity()*-1) < 2050){
-     shooter.shoot(power);
-   }
- else {
-
- }*/
+ /*  */
  
- if ((limelight.getHorizontalAngle() > -20) && (limelight.getHorizontalAngle() < -15)) {
-   power = -0.365;
+ if ((limelight.getHorizontalAngle() > -27) && (limelight.getHorizontalAngle() < -15)) {
+  power = 0.365;
+  TargetVelocity = 1950;
+  shooter.rampUp(-power, TargetVelocity);
+  shooter.arc(0);
  }
- else if ((limelight.getHorizontalAngle() > -15) && (limelight.getHorizontalAngle() < -10)){
-   power = -0.38;
+ else if ((limelight.getHorizontalAngle() > -14.9999999999999999) && (limelight.getHorizontalAngle() < -12.5)){
+  power = 0.37;
+  TargetVelocity = 2050;
+  shooter.rampUp(-power, TargetVelocity);
+  shooter.arc(0);
  }
+ else if ((limelight.getHorizontalAngle() > -12.499999999999999999) && (limelight.getHorizontalAngle() < -10)){
+  power = 0.38;
+  TargetVelocity = 2110;
+  shooter.rampUp(-power, TargetVelocity);
+  shooter.arc(0);
+ }
+ else if ((limelight.getHorizontalAngle() > -9.9999999999999) && (limelight.getHorizontalAngle() < -8.5)){
+  power = 0.39;
+  TargetVelocity = 2140;
+  shooter.rampUp(-power, TargetVelocity);
+  shooter.arc(0);
+}
+else if ((limelight.getHorizontalAngle() > -8.499999999999999) && (limelight.getHorizontalAngle() < -3)){
+  power = .39;
+  TargetVelocity = 2140;
+  shooter.rampUp(-power, TargetVelocity);
+  shooter.arc(10);
+}
+else if ((limelight.getHorizontalAngle() > -2.9999999999999) && (limelight.getHorizontalAngle() < -0.0000000000001)){
+  power = .39;
+  TargetVelocity = 2140;
+  shooter.rampUp(-power, TargetVelocity);
+  shooter.arc(20);
+}
+else if ((limelight.getHorizontalAngle() > 0.000000000001) && (limelight.getHorizontalAngle() < 2)){
+  power = 0.39;
+  TargetVelocity = 2150;
+  shooter.rampUp(-power, TargetVelocity);
+  shooter.arc(25);
+}
+else if ((limelight.getHorizontalAngle() > 2.0000000000001) && (limelight.getHorizontalAngle() < 3)){
+  power = 0.39;
+  TargetVelocity = 2150;
+  shooter.rampUp(-power, TargetVelocity);
+  shooter.arc(27);
+}
+else if ((limelight.getHorizontalAngle() > 3.0000000000001) && (limelight.getHorizontalAngle() < 5)){
+  power = 0.415;
+  TargetVelocity = 2180;
+  shooter.rampUp(-power, TargetVelocity);
+  shooter.arc(27.2);
+}
+else if ((limelight.getHorizontalAngle() > 5.0000000000001) && (limelight.getHorizontalAngle() < 6)){
+  power = 0.435;
+  TargetVelocity = 2320;
+  shooter.rampUp(-power, TargetVelocity);
+  shooter.arc(27.5);
+}
  else{
-   power = 0;
+  power = 0.435;
+  TargetVelocity = 2320;
+  shooter.rampUp(-power, TargetVelocity);
+  shooter.arc(27.5);
+  //shooter.URMOM = false;
  }
- shooter.shoot(power);
-   // shooter.shoot(-.38);;
+ //shooter.shoot(power);
+//   shooter.shoot(-.36);;
     
 
   }
