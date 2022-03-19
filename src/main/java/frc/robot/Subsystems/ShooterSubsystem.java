@@ -35,13 +35,18 @@ public class ShooterSubsystem extends SubsystemBase {
 	public CANSparkMax back_belt;
 	public RelativeEncoder hoodEncoder;
 	public RelativeEncoder wheelEncoder;
-	private double kP;
+	private double kP = 0.045;
+	private double kI = 0;
+	private double kD = 0;
 	public MotorControllerGroup flywheel;
 	public LidarSubsystem lidar;
 	public double power;
 
+
 	public SparkMaxPIDController m_pidController;
 	public SparkMaxPIDController m_pidController2; 
+	PIDController pid = new PIDController(kP, kI, kD);
+	double sensorHood;
 
 	public ShooterSubsystem() {
 
@@ -65,9 +70,13 @@ public class ShooterSubsystem extends SubsystemBase {
 		transport1.setInverted(true);
 		transport2.setInverted(false);
 		lidar = Robot.lidarSubsystem;
+		
+		
 		// spin2.follow(spin);
 
-		kP = .25;
+		
+		
+		
 
 		flyWheel1.setIdleMode(IdleMode.kCoast);
 		flyWheel2.setIdleMode(IdleMode.kCoast);
@@ -102,7 +111,22 @@ public class ShooterSubsystem extends SubsystemBase {
 	public void spinback(double speed) {
 		back_belt.set(speed);
 	}
+	public void rampUp(double speed, double TargetVelocity) {
+		if((flyWheel1.getEncoder().getVelocity()*-1) < TargetVelocity) {
 
+			shoot(-.5);
+		   }
+		   else if (((flyWheel1.getEncoder().getVelocity()*-1) > (TargetVelocity + 0.1))){
+			shoot(speed);
+		   }
+		 else {
+		
+		 }
+	}
+public void arc (double joe) {
+	sensorHood = hood.getEncoder().getPosition();
+	hood.set(pid.calculate(sensorHood, -joe));
+}
 	public double getHoodEncoder() {
 		return hood.getEncoder().getPosition();
 	}

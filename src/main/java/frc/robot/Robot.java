@@ -145,8 +145,10 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Shooter Hood Position", shooter.hoodEncoder.getPosition());
     SmartDashboard.putNumber("tx", limelight.getHorizontalAngle());
     SmartDashboard.putNumber("ty", limelight.getVerticalAngle());
+    
 
 
+    
 
     // cringe = SmartDashboard.getNumber("hood position set", 0);
 
