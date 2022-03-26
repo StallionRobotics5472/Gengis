@@ -4,14 +4,19 @@
 
 package frc.robot.Commands.LiftCommands;
 
+import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.Subsystems.LiftSubsystem;
 
-public class StopLiftFlipCommand extends CommandBase {
-  /** Creates a new StopLiftFlipCommand. */
+public class PIDLiftFlipCommand1 extends CommandBase {
+  /** Creates a new LiftFlipCommand. */
   private LiftSubsystem lift;
-  public StopLiftFlipCommand() {
+  private double kP = 0.08;
+  private double kI = 0.00;
+  private double kD = 0.00;
+  private PIDController pid = new PIDController(kP, kI, kD);
+  public PIDLiftFlipCommand1() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -24,7 +29,12 @@ public class StopLiftFlipCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    lift.flip(0.02);
+   // lift.flip(-0.09);
+   double setPoint = -4.8;
+
+    double sensorPosition = (Robot.lift.lift3.getEncoder().getPosition());
+
+    Robot.lift.lift3.set(pid.calculate( sensorPosition, setPoint ));
   }
 
   // Called once the command ends or is interrupted.

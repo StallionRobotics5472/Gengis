@@ -20,6 +20,7 @@ import frc.robot.Commands.LiftCommands.LiftFlipCommand;
 import frc.robot.Commands.LiftCommands.LiftGrabCommand;
 import frc.robot.Commands.LiftCommands.PIDLiftExtendCommand;
 import frc.robot.Commands.LiftCommands.PIDLiftFlipCommand;
+import frc.robot.Commands.LiftCommands.PIDLiftFlipCommand1;
 import frc.robot.Commands.LiftCommands.StopEncoderHoodCommand;
 import frc.robot.Commands.LiftCommands.StopLiftExtendCommand;
 import frc.robot.Commands.LiftCommands.StopLiftFlipCommand;
@@ -58,6 +59,7 @@ public class Controls {
     public JoystickButton lift5;
     public JoystickButton backbelt;
     public JoystickButton lift6;
+    public JoystickButton lift7;
     public JoystickButton max;
     public JoystickButton reverse;
     public JoystickButton hoodEncoder;
@@ -84,11 +86,12 @@ public class Controls {
         lift4 = new JoystickButton(playerOne, Constants.BUTTON_B);
         lift5 = new JoystickButton(playerOne, Constants.START_BUTTON);
         lift6 = new JoystickButton(playerOne, Constants.BACK_BUTTON);
+       
         // dump = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
         //tarmac = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
         hood1 = new JoystickButton(playerTwo, Constants.BUTTON_B);
         hood2 = new JoystickButton(playerTwo, Constants.BUTTON_X);
-        reverse = new JoystickButton(playerOne, Constants.BACK_RIGHT_BUTTON);
+        lift7 = new JoystickButton(playerOne, Constants.BACK_RIGHT_BUTTON);
         max = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
         //joe = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
         //hood = new JoystickButton(playerTwo, Constants.BUTTON_B);
@@ -104,9 +107,9 @@ public class Controls {
         intake.whenReleased(new StopIntakeCommand());
         backbelt.whileHeld(new BackBeltCommand());
         backbelt.whenReleased(new StopBackBeltCommand());
-        lift1.whileHeld(new LiftExtendCommand());
+        lift1.whileHeld(new PIDLiftExtendCommand());
         lift1.whenReleased(new StopLiftExtendCommand());
-        lift2.whileHeld(new LiftFlipCommand());
+        lift2.whileHeld(new PIDLiftFlipCommand());
         lift2.whenReleased(new StopLiftFlipCommand());
         lift3.whileHeld(new BackLiftExtendCommand());
         lift3.whenReleased(new StopLiftExtendCommand());
@@ -134,8 +137,8 @@ public class Controls {
         // hood.whenReleased(new StopHoodCommand());
         hood1.whenReleased(new StopHoodCommand());
         hood2.whenReleased(new StopHoodCommand());
-        reverse.whileHeld(new ReverseIntake());
-        reverse.whenReleased(new StopIntakeCommand());
+        lift7.whileHeld(new PIDLiftFlipCommand1());
+        lift7.whenReleased(new StopLiftFlipCommand());
 
         
     }   

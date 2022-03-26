@@ -4,6 +4,7 @@
 
 package frc.robot.Commands.LiftCommands;
 
+import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 import frc.robot.Subsystems.LiftSubsystem;
@@ -11,7 +12,10 @@ import frc.robot.Subsystems.LiftSubsystem;
 public class PIDLiftFlipCommand extends CommandBase {
   /** Creates a new LiftFlipCommand. */
   private LiftSubsystem lift;
-  private double kP;
+  private double kP = 0.08;
+  private double kI = 0.00;
+  private double kD = 0.00;
+  private PIDController pid = new PIDController(kP, kI, kD);
   public PIDLiftFlipCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -20,22 +24,17 @@ public class PIDLiftFlipCommand extends CommandBase {
   @Override
   public void initialize() {
     lift = Robot.lift;
-    kP = 0.09;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
    // lift.flip(-0.09);
-   double setPoint = 3.7;
-   double sensorPosition = (Robot.lift.lift3.getEncoder().getPosition())*-1;
-    
-            double error = setPoint - sensorPosition;
+   double setPoint = -10;
 
-            double outputSpeed = kP * error;
-            
-    
-            Robot.lift.flip(-outputSpeed);
+    double sensorPosition = (Robot.lift.lift3.getEncoder().getPosition());
+
+    Robot.lift.lift3.set(pid.calculate( sensorPosition, setPoint ));
   }
 
   // Called once the command ends or is interrupted.

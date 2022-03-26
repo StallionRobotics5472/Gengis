@@ -7,6 +7,7 @@ import frc.robot.Robot;
 
 import com.ctre.phoenix.led.CANdle;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.MotorCommutation;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.VictorSPXSimCollection;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -29,7 +30,7 @@ public class ShooterSubsystem extends SubsystemBase {
 	// public CANSparkMax wheel_slave;
 	public CANSparkMax flyWheel2;
 	public CANSparkMax hood;
-	public VictorSPX intake;
+	public CANSparkMax intake;
 	public CANSparkMax transport1;
 	public CANSparkMax transport2;
 	public CANSparkMax back_belt;
@@ -62,7 +63,7 @@ public class ShooterSubsystem extends SubsystemBase {
 		flywheel = new MotorControllerGroup(flyWheel1,flyWheel2);
 		hood = new CANSparkMax(Constants.HOOD, MotorType.kBrushless);
 		hood.setIdleMode(IdleMode.kBrake);
-		intake = new VictorSPX(Constants.INTAKE);
+		intake = new CANSparkMax(Constants.INTAKE, MotorType.kBrushless);
 		transport1 = new CANSparkMax(Constants.TRANSPORT_1, MotorType.kBrushless);
 		transport2 = new CANSparkMax(Constants.TRANSPORT_2, MotorType.kBrushless);
 		hoodEncoder = hood.getEncoder();
@@ -90,7 +91,7 @@ public class ShooterSubsystem extends SubsystemBase {
 	}
 
 	public void spin(double speed) {
-		intake.set(ControlMode.PercentOutput, speed);
+		intake.set(speed);
 	}
 
 	public void mover(double speed) {
