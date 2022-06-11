@@ -73,55 +73,55 @@ public class ShootCommand extends CommandBase {
  /*  */
  
  if ((limelight.getHorizontalAngle() > -27) && (limelight.getHorizontalAngle() < -15)) {
-  power = 0.365;
+  power = 0.368;
   TargetVelocity = 1950;
   shooter.rampUp(-power, TargetVelocity);
   shooter.arc(0);
  }
  else if ((limelight.getHorizontalAngle() > -14.9999999999999999) && (limelight.getHorizontalAngle() < -12.5)){
-  power = 0.37;
+  power = 0.373;
   TargetVelocity = 2050;
   shooter.rampUp(-power, TargetVelocity);
   shooter.arc(0);
  }
  else if ((limelight.getHorizontalAngle() > -12.499999999999999999) && (limelight.getHorizontalAngle() < -10)){
-  power = 0.38;
+  power = 0.383;
   TargetVelocity = 2110;
   shooter.rampUp(-power, TargetVelocity);
   shooter.arc(0);
  }
  else if ((limelight.getHorizontalAngle() > -9.9999999999999) && (limelight.getHorizontalAngle() < -8.5)){
-  power = 0.39;
+  power = 0.393;
   TargetVelocity = 2140;
   shooter.rampUp(-power, TargetVelocity);
-  shooter.arc(0);
+  shooter.arc(3);
 }
 else if ((limelight.getHorizontalAngle() > -8.499999999999999) && (limelight.getHorizontalAngle() < -3)){
-  power = .39;
+  power = .393;
   TargetVelocity = 2140;
   shooter.rampUp(-power, TargetVelocity);
-  shooter.arc(10);
+  shooter.arc(15);
 }
 else if ((limelight.getHorizontalAngle() > -2.9999999999999) && (limelight.getHorizontalAngle() < -0.0000000000001)){
-  power = .39;
+  power = .393;
   TargetVelocity = 2140;
   shooter.rampUp(-power, TargetVelocity);
   shooter.arc(20);
 }
 else if ((limelight.getHorizontalAngle() > 0.000000000001) && (limelight.getHorizontalAngle() < 2)){
-  power = 0.39;
+  power = 0.393;
   TargetVelocity = 2150;
   shooter.rampUp(-power, TargetVelocity);
   shooter.arc(25);
 }
 else if ((limelight.getHorizontalAngle() > 2.0000000000001) && (limelight.getHorizontalAngle() < 3)){
-  power = 0.39;
+  power = 0.393;
   TargetVelocity = 2150;
   shooter.rampUp(-power, TargetVelocity);
   shooter.arc(27);
 }
 else if ((limelight.getHorizontalAngle() > 3.0000000000001) && (limelight.getHorizontalAngle() < 5)){
-  power = 0.415;
+  power = 0.4355;
   TargetVelocity = 2180;
   shooter.rampUp(-power, TargetVelocity);
   shooter.arc(27.2);
@@ -133,7 +133,7 @@ else if ((limelight.getHorizontalAngle() > 5.0000000000001) && (limelight.getHor
   shooter.arc(27.5);
 }
  else{
-  power = 0.435;
+  power = 0.438;
   TargetVelocity = 2320;
   shooter.rampUp(-power, TargetVelocity);
   shooter.arc(27.5);

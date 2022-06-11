@@ -26,6 +26,7 @@ public class StopBackBeltCommand extends CommandBase {
   public void execute() {
     shooter.spinback(0);
     shooter.mover(0);
+    shooter.spin(0);
   }
 
   // Called once the command ends or is interrupted.

@@ -4,9 +4,11 @@ import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandGroupBase;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.Autonomous.RunAuto;
+import frc.robot.Autonomous.RunAuto2;
 import frc.robot.Autonomous.JacksCoolCommands.TwoBallAuto;
 import frc.robot.Commands.DriveCommands.DriveCommand;
 import frc.robot.Commands.ShooterCommands.ShootCommand;
@@ -30,6 +32,7 @@ public class Robot extends TimedRobot {
   public static double cringe;
   public static EnconderHoodDeal encoderHood;
   public static ShootCommand shoot;
+
   // public static Cameras cameras = new Cameras();
 
   // public static Drivetrain drive;
@@ -45,6 +48,7 @@ public class Robot extends TimedRobot {
     lidarSubsystem = new LidarSubsystem();
     // encoderHood = new EnconderHoodDeal();
     autoChooser = new SendableChooser<CommandGroupBase>();
+    
     shooter.hood.getEncoder().setPosition(0);
     drive.rightMaster.getEncoder().setPosition(0);
     drive.leftMaster.getEncoder().setPosition(0);
@@ -84,10 +88,18 @@ public class Robot extends TimedRobot {
     drive.navx.reset();
     
 
-    CommandGroupBase BallAuto = new RunAuto();
+    CommandGroupBase BallAuto = new RunAuto2();
     BallAuto.schedule();
+   /* autoChooser.setDefaultOption("Three Ball Auto", Three_Ball_Auto);
+    autoChooser.addOption("Two Ball Auto", Two_Ball_Auto);
+    SmartDashboard.putData(autoChooser);
+    */
+    }
+    
+  
+    
 
-  }
+  
 
   @Override
   public void autonomousPeriodic() {

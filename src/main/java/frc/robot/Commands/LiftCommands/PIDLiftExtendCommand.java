@@ -16,6 +16,7 @@ public class PIDLiftExtendCommand extends CommandBase {
   private double kI = 0.00;
   private double kD = 0.00;
   private PIDController pid = new PIDController(kP, kI, kD);
+  private boolean joeseyes;
 
   public PIDLiftExtendCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
@@ -30,13 +31,27 @@ public class PIDLiftExtendCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+  /*  if(lift.getLiftSensor()){
+      lift.extend(0);
+    }
+    else {
+      double setPoint = -21;
+*/
+  double setPoint = -21;
+    double sensorPosition = (Robot.lift.lift2.getEncoder().getPosition());
 
-    double setPoint = -21;
+    Robot.lift.lift2.set(pid.calculate( sensorPosition, setPoint ));
+    
+    
+  
+   /* double setPoint = -21;
 
     double sensorPosition = (Robot.lift.lift1.getEncoder().getPosition());
 
     Robot.lift.lift1.set(pid.calculate( sensorPosition, setPoint ));
-
+    */
+   
+   
   }
 
 

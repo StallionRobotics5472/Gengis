@@ -40,7 +40,7 @@ public class AutoDriveEncoderIntake extends CommandBase {
         double sensorRight = Robot.drive.rightMaster.getEncoder().getPosition() * 0.98;
         double sensorLeft = Robot.drive.leftMaster.getEncoder().getPosition() * 1;
 
-        Robot.shooter.spin(0.75);
+        Robot.shooter.spin(1);
 
         Robot.drive.rightMaster.set(pid.calculate(sensorRight, setPoint));
         Robot.drive.leftMaster.set(pid.calculate(sensorLeft, setPoint));
@@ -49,7 +49,7 @@ public class AutoDriveEncoderIntake extends CommandBase {
 
         SmartDashboard.putNumber("rightMaster_Encoder ProcessVariable", Robot.drive.rightMaster_Encoder.getPosition());
 
-        SmartDashboard.putBoolean("Is finished", false);
+        SmartDashboard.putBoolean("Is f inished", false);
         if (pid.atSetpoint()) {
 
             completed = true;

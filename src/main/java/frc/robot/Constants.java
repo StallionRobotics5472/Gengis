@@ -62,6 +62,7 @@ public class Constants {
         public static int LIFT_2 = 15;
         public static int LIFT_3 = 16;
         public static int LIFT_4 = 17;
+        public static int LIFT_LIMIT = 4;
 
         public static int LIDAR_PORT = 0;
       

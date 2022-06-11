@@ -9,6 +9,7 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -23,18 +24,24 @@ public class LiftSubsystem extends SubsystemBase {
   public RelativeEncoder lift2_Encoder = lift2.getEncoder();
   public RelativeEncoder lift3_Encoder = lift3.getEncoder();
   public RelativeEncoder lift4_Encoder = lift4.getEncoder();
+  public DigitalInput liftLimit = new DigitalInput(Constants.LIFT_LIMIT);
+  
   public LiftSubsystem() {
     
   }
   public void extend(double speed){
-    lift1.set(speed);
     lift2.set(speed);
+    lift1.set(speed);
+    
   }
   public void flip(double speed){
     lift3.set(speed);
   }
   public void grab(double speed){
     lift4.set(speed);
+  }
+  public boolean getLiftSensor(){
+    return liftLimit.get();
   }
   @Override
   public void periodic() {

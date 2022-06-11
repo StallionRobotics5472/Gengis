@@ -31,7 +31,7 @@ public class AutoClimb extends CommandBase {
         if(Timer.getFPGATimestamp() - starttime <= 0.5){
             Robot.shooter.hood.set(pid.calculate(sensorHood, -28));
             
-             Robot.lift.grab(0.4);
+             Robot.lift.grab(0.4);  
             // Robot.lift.extend(0.08);
            // Robot.drive.leftFollower.set(ControlMode.PercentOutput, 0.5);
             //Robot.drive.rightFollower.set(ControlMode.PercentOutput,-0.5);

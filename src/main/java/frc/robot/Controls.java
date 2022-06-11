@@ -93,6 +93,7 @@ public class Controls {
         hood2 = new JoystickButton(playerTwo, Constants.BUTTON_X);
         lift7 = new JoystickButton(playerOne, Constants.BACK_RIGHT_BUTTON);
         max = new JoystickButton(playerTwo, Constants.BACK_LEFT_BUTTON);
+        reverse = new JoystickButton(playerTwo, Constants.BUTTON_A);
         //joe = new JoystickButton(playerTwo, Constants.BACK_RIGHT_BUTTON);
         //hood = new JoystickButton(playerTwo, Constants.BUTTON_B);
         configureButtonBindings();
@@ -119,6 +120,8 @@ public class Controls {
         lift5.whenReleased(new StopLiftGrabCommand());
         lift6.whenReleased(new StopLiftGrabCommand());
         lift6.whileHeld(new BackLiftGrabCommand());
+        reverse.whileHeld(new ReverseIntake());
+        reverse.whenReleased(new StopIntakeCommand());
 
         // hoodEncoder.whileHeld(new EnconderHoodDeal(25));
         // //joe.whileHeld(new EnconderHoodDeal(10));
@@ -129,7 +132,7 @@ public class Controls {
          tarmac.whileHeld(new TarmacCommand());
          tarmac.whenReleased(new StopShootCommand());
          max.whileHeld(new MaxCommand());
-         max.whenReleased(new StopShootCommand());
+        max.whenReleased(new StopShootCommand());
          //hood.whenPressed(new HoodCommand35());
          //hood.whenReleased(new StopHoodCommand());
         hood2.whileHeld(new HoodCommand35());
